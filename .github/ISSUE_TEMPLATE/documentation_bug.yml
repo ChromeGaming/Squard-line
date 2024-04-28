@@ -37,7 +37,7 @@ body:
     id: terms
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [CODE OF CONDUCT](https://github.com/GameSphere-MultiPlayer/Community-Page/blob/main/.github/CODE_OF_CONDUCT.md)
+      description: By submitting this issue, you agree to follow our [CODE OF CONDUCT](https://github.com/GameSphere-MultiPlayer/Squard-line/blob/main/.github/CODE_OF_CONDUCT.md)
       options:
         - label: I follow [CONTRIBUTING GUIDELINE]() of this project.
           required: true
