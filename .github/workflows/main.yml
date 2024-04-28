@@ -1,41 +1,27 @@
-name: Auto Assign and Label
+name: Auto Label for New Issues
 
 on:
   issues:
     types: [opened]
 
 jobs:
-  assign_and_label:
+  label_new_issue:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check for "/assign" comment
-        id: check_comment
-        uses: actions/github-script@v4
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const issueBody = context.payload.issue.body.toLowerCase();
-            const isAssignCommand = issueBody.includes('/assign');
-            return { isAssignCommand };
-
-      - name: Get commenter username
-        id: commenter
-        if: steps.check_comment.outputs.isAssignCommand == true
-        uses: actions/github-script@v4
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const commenter = context.payload.issue.user.login;
-            return { commenter };
-
-      - name: Assign user to the issue
-        if: steps.check_comment.outputs.isAssignCommand == true
+      - name: Check if issue matches template
+        id: check_template
         run: |
-          commenter=${{ steps.commenter.outputs.commenter }}
-          gh issue add-assignees ${{ github.event.issue.number }} $commenter
+          issue_body=$(curl -sL "${{ github.event.issue.url }}/body")
+          if [[ $issue_body == *"<!-- template: GSSoC24 -->"* ]]; then
+            echo "::set-output name=matches_template::true"
+          else
+            echo "::set-output name=matches_template::false"
+          fi
 
-      - name: Add label to the issue
-        if: steps.check_comment.outputs.isAssignCommand == true
+      - name: Add label if issue matches template
+        if: steps.check_template.outputs.matches_template == 'true'
         run: |
           gh issue add-labels ${{ github.event.issue.number }} GSSoC'24
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
