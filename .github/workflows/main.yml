@@ -1,0 +1,41 @@
+name: Auto Assign and Label
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  assign_and_label:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check for "/assign" comment
+        id: check_comment
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issueComment = context.payload.comment.body.toLowerCase();
+            const isAssignCommand = issueComment.includes('/assign');
+            return { isAssignCommand };
+
+      - name: Get commenter username
+        id: commenter
+        if: steps.check_comment.outputs.isAssignCommand == true
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const commenter = context.payload.comment.user.login;
+            return { commenter };
+
+      - name: Assign user to the issue
+        if: steps.check_comment.outputs.isAssignCommand == true
+        run: |
+          commenter=${{ steps.commenter.outputs.commenter }}
+          gh issue add-assignees ${{ github.event.issue.number }} $commenter
+
+      - name: Add label to the issue
+        if: steps.check_comment.outputs.isAssignCommand == true
+        run: |
+          gh issue add-labels ${{ github.event.issue.number }} GSSoC'24
