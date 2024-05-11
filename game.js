@@ -1,6 +1,7 @@
    
 document.addEventListener('touchmove', function(e) {e.preventDefault();}, false);
 document.addEventListener('touchstart', function(e) {e.preventDefault();}, false);
+alert("welcome to the Squared Game");
 
 
 var canvas = document.getElementById('game');
@@ -1257,7 +1258,6 @@ var NewGame = function () {
     
 
     NewGame.prototype.levelup = function () {
-               
         this.t.stop();
         this.g.pb.nextl();
         this.resetmaker();
@@ -1368,13 +1368,22 @@ var scorealert = function () {
     }
 };
 
+function showLevelCompleteMessage(level) {
+    alert("Congratulations! You have completed level " + level + ". Moving to the next level!");
+}
+
 
 GameStatusChanger.end = function () {
+    console.log("Game end function called");
     scorealert();
+    //scorealert();
     squaredlines.newgame();
 };
 
 GameStatusChanger.nextlevel = function () {
+    console.log("Next level function called");
+    console.log("Current level:", squaredlines.i.level);
+    showLevelCompleteMessage(squaredlines.i.level);
     squaredlines.levelup();
 };
 
