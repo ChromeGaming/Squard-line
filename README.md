@@ -20,6 +20,8 @@
   <img src="https://img.shields.io/github/last-commit/GameSphere-MultiPlayer/Squard-line?style=for-the-badge" />
   </div>
 
+<br>
+<br>
 
-Check out our [CONTRIBUTING.md](./CONTRIBUTING.md) to get learning resources as well as the exact contribution details and learn about the development process. 
+Check out our [CONTRIBUTING GUIDELINES](./CONTRIBUTING.md) to get learning resources as well as the exact contribution details and learn about the development process. 
 
