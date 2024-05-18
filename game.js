@@ -1317,17 +1317,17 @@ var intro = function () {
         context.font = "bold "+rs.x*3.2+"px Lucida Console";
         context.fillStyle = colors.empty;
         context.textAlign = "left";
-        context.fillText('functionary.', rs.fx/8, rs.fy/3+rs.x*2);
-        context.fillText('your function is to cut', rs.fx/8, rs.fy/3+rs.x*6);
-        context.fillText('(board) into procedurally declared', rs.fx/8, rs.fy/3+rs.x*10);
+        context.fillText('Functionary:', rs.fx/8, rs.fy/3+rs.x*2);
+        context.fillText('Your function is to cut', rs.fx/8, rs.fy/3+rs.x*6);
+        context.fillText('the board into procedurally declared', rs.fx/8, rs.fy/3+rs.x*10);
         context.fillText('└► blocks', rs.fx/8, rs.fy/3+rs.x*14);
         context.fillText('   for the player', rs.fx/8, rs.fy/3+rs.x*18);
         context.fillText('   to enjoy', rs.fx/8, rs.fy/3+rs.x*22);
         
 
-        context.fillText('make no mistakes.', rs.fx/8, rs.fy/3+rs.x*36);
-        context.fillText('waste no boards.', rs.fx/8, rs.fy/3+rs.x*40);
-        context.fillText('prove you are a computer', rs.fx/8, rs.fy/3+rs.x*44);
+        context.fillText('Make no mistakes.', rs.fx/8, rs.fy/3+rs.x*36);
+        context.fillText('Waste no boards.', rs.fx/8, rs.fy/3+rs.x*40);
+        context.fillText('Prove you are a computer', rs.fx/8, rs.fy/3+rs.x*44);
         context.fillText('   worthy of functioning.', rs.fx/8, rs.fy/3+rs.x*48);
         context.textAlign = "center";
 
