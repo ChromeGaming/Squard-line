@@ -1,34 +1,62 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
+    <meta charset="utf-8"/>
     <meta name="author" content="Heartland Games">
     <meta name="msapplication-tap-highlight" content="no" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta name="viewport" content="minimal-ui" />
+    <meta name="viewport" content="minimal-ui" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, user-scalable=no"/>
     
     <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     
-</head>
     <style>
-    #container {
-        background: #f4f4f4
-    }
+        body {
+            background-color: #1e1e1e; /* Dark gray background */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            perspective: 1000px; /* Add perspective for 3D effect */
+        }
+       
+        .background-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+            animation: rotate 30s infinite linear;
+            transform: translateZ(-100px); /* Move background layer back */
+        }
+        .background-layer:nth-child(2) {
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
+            animation-duration: 60s;
+            transform: translateZ(-200px); /* Move second background layer further back */
+        }
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
     </style>
     
-<title>Squared Lines</title>
+    <title>Squared Lines</title>
+</head>
 
 <body>
+  <div class="background-layer"></div>
+  <div class="background-layer"></div>
   <div id="container">
-  <canvas id = "game"></canvas>
+    <canvas id="game"></canvas>
   </div>  
-<script src="game.js"></script>
-    
+  <script src="game.js"></script>
 </body>
 </html>
