@@ -144,7 +144,9 @@ canvas.addEventListener("touchend", function (e) {inpu.touchup(e);}, false);
 
 document.body.addEventListener("touchcancel", function (e) {inpu.cancel(e);}, false);
 
-    
+canvas.addEventListener('mouseenter', function() {
+    this.style.cursor = 'pointer';
+  });
 var resizegame = function () {
     
     var bw = window.innerWidth - 20;
