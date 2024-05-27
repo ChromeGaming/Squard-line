@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-    
+    <script src="https://kit.fontawesome.com/a2c23c1a99.js" crossorigin="anonymous"></script>
     <style>
         body {
             background-color: #1e1e1e; /* Dark gray background */
@@ -46,6 +46,22 @@
                 transform: rotate(360deg);
             }
         }
+
+        footer{
+            text-align: center;
+            color: #fff;
+        }
+        .con{
+            font-size: 2rem;
+            color: #fff;
+        }
+        .social{
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           gap: 2.5rem; 
+           
+        }
     </style>
     
 
@@ -58,7 +74,20 @@
   <div class="background-layer"></div>
   <div id="container">
     <canvas id="game"></canvas>
+    <footer>
+        <h2>Made by ❤️ by Chrome Gaming </h2>
+        <p> Connect with Me </p>
+        <div class="social">
+            <a class="con" href="https://www.linkedin.com/company/chromegaming/"><i class="fa-brands fa-linkedin"></i></a> 
+            <a class="con" href="https://github.com/GameSphere-MultiPlayer"><i class="fa-brands fa-github"></i></a>
+            <a class="con" href="https://discord.gg/rZb46cCMmK"><i class="fa-brands fa-discord"></i></a>
+            <a class="con" href="mailto:gamespheremultiplayer@gmail.com"><i class="fa-light fa-square-envelope"></i></a>
+        </div>
+            <p class="opyright">© Copyright Squard Line @Durgesh4993</p>
+        <p></p>
+      </footer>
   </div>  
+
   <script src="game.js"></script>
 </body>
 </html>
