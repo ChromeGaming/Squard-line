@@ -1,4 +1,4 @@
-   
+const gameStateStack = [];
 document.addEventListener('touchmove', function(e) {e.preventDefault();}, false);
 document.addEventListener('touchstart', function(e) {e.preventDefault();}, false);
 alert("welcome to the Squared Game");
@@ -6,6 +6,8 @@ alert("welcome to the Squared Game");
 
 var canvas = document.getElementById('game');
 var context = canvas.getContext('2d');
+const undoButton = document.getElementById('undoButton');
+const restartButton = document.getElementById('restartButton');
 
 var rs = {x: 1, y: 1, fx:100, fy: 100, marw: 1, marh: 1};
 
@@ -1414,3 +1416,33 @@ GameStatusChanger.win =  function () {
     alert(score+' blocks make for a nice computing indeed.');
     squaredlines.newgame();
 };
+// Add event listeners for buttons
+undoButton.addEventListener('click', undo);
+restartButton.addEventListener('click', restart);
+function undo() {
+    if (gameStateStack.length > 1) { // Ensure there's a state to undo
+        gameStateStack.pop(); // Remove the current state
+        const previousState = gameStateStack[gameStateStack.length - 1]; // Get the previous state
+        // Restore the previous state (implement your logic)
+        console.log('Undoing last move...');
+        // Example: If you have a function to restore the game state, call it here
+        // restoreGameState(previousState);
+    } else {
+        console.log('Nothing to undo');
+    }
+}
+
+function restart() {
+    // Reset the game state (implement your logic)
+    console.log('Restarting game...');
+    // Example: If you have a function to reset the game state, call it here
+    // resetGameState();
+    // Clear the game state stack
+    gameStateStack.length = 0;
+    // Add the initial game state to the stack
+    gameStateStack.push(initialGameState);
+}
+
+// Initial game state (replace this with your actual initial game state)
+const initialGameState = {}; // Implement your logic for initial game state
+gameStateStack.push(initialGameState);
