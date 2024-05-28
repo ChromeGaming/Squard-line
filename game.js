@@ -1414,3 +1414,54 @@ GameStatusChanger.win =  function () {
     alert(score+' blocks make for a nice computing indeed.');
     squaredlines.newgame();
 };
+
+// Existing game logic and code...
+
+// Function to show the dialogue box
+function showDialogueBox(message, options) {
+    const dialogueBox = document.getElementById('dialogue-box');
+    const dialogueMessage = document.getElementById('dialogue-message');
+    const dialogueOptions = document.getElementById('dialogue-options');
+
+    dialogueMessage.textContent = message;
+    dialogueOptions.innerHTML = '';
+
+    options.forEach(option => {
+        const button = document.createElement('button');
+        button.textContent = option.text;
+        button.addEventListener('click', option.callback);
+        dialogueOptions.appendChild(button);
+    });
+
+    dialogueBox.style.display = 'block';
+}
+
+// Function to hide the dialogue box
+function hideDialogueBox() {
+    const dialogueBox = document.getElementById('dialogue-box');
+    dialogueBox.style.display = 'none';
+}
+
+// Example usage
+function showStartGameDialogue() {
+    const options = [
+        { text: 'New Game', callback: startNewGame },
+        { text: 'End Game', callback: endGame }
+    ];
+    showDialogueBox('Welcome to Squared Lines!', options);
+}
+
+function startNewGame() {
+    // Start new game logic
+    hideDialogueBox();
+    // ...
+}
+
+function endGame() {
+    // End game logic
+    hideDialogueBox();
+    // ...
+}
+
+// Call the showStartGameDialogue function when the game starts
+showStartGameDialogue();
