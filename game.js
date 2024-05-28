@@ -1,8 +1,15 @@
    
 document.addEventListener('touchmove', function(e) {e.preventDefault();}, false);
 document.addEventListener('touchstart', function(e) {e.preventDefault();}, false);
-alert("welcome to the Squared Game");
+// alert("welcome to the Squared Game");
+document.addEventListener('DOMContentLoaded', function() {
+    var welcomeOverlay = document.getElementById('welcome-overlay');
 
+    // Hide the welcome overlay after 3 seconds
+    setTimeout(function() {
+        welcomeOverlay.classList.add('hidden');
+    }, 5000);
+});
 
 var canvas = document.getElementById('game');
 var context = canvas.getContext('2d');

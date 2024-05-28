@@ -1,64 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="author" content="Heartland Games">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Heartland Games" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="minimal-ui" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="viewport" content="width=device-width, user-scalable=no"/>
-    
-    <meta name="format-detection" content="telephone=no">
-    <meta name="msapplication-tap-highlight" content="no">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-    
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta
+      name="viewport"
+      content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width"
+    />
+
     <style>
-        body {
-            background-color: #1e1e1e; /* Dark gray background */
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            perspective: 1000px; /* Add perspective for 3D effect */
+      body {
+        background-color: #1e1e1e; /* Dark gray background */
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        perspective: 1000px; /* Add perspective for 3D effect */
+      }
+
+      .background-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.05),
+          rgba(0, 0, 0, 0.1)
+        );
+        animation: rotate 30s infinite linear;
+        transform: translateZ(-100px); /* Move background layer back */
+      }
+      .background-layer:nth-child(2) {
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1),
+          rgba(0, 0, 0, 0.2)
+        );
+        animation-duration: 60s;
+        transform: translateZ(
+          -200px
+        ); /* Move second background layer further back */
+      }
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
         }
-       
-        .background-layer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-            animation: rotate 30s infinite linear;
-            transform: translateZ(-100px); /* Move background layer back */
+        to {
+          transform: rotate(360deg);
         }
-        .background-layer:nth-child(2) {
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
-            animation-duration: 60s;
-            transform: translateZ(-200px); /* Move second background layer further back */
-        }
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
+      }
+
+      #welcome-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(30, 30, 30, 0.9); /* Dark overlay */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 2em;
+        z-index: 1000; /* Ensure it covers all other content */
+        transition: opacity 0.5s ease-out;
+      }
+
+      #welcome-overlay.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
     </style>
-    
 
-<title>Squared Lines</title>
-<link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <title>Squared Lines</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+  </head>
 
-</head>
+  <body>
+    <div id="welcome-overlay">
+      <img src="Welcome-img.gif" height="700px" width="700px " alt="welcome-img" />
+    </div>
+    <div class="background-layer"></div>
+    <div id="container">
+      <canvas id="game"></canvas>
+    </div>
 
-<body>
-  <div class="background-layer"></div>
-  <div id="container">
-    <canvas id="game"></canvas>
-  </div>  
-  <script src="game.js"></script>
-</body>
+    <script src="game.js"></script>
+  </body>
 </html>
