@@ -32,11 +32,13 @@
             background: radial-gradient(circle, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
             animation: rotate 30s infinite linear;
             transform: translateZ(-100px); /* Move background layer back */
+            z-index: 0;
         }
         .background-layer:nth-child(2) {
             background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
             animation-duration: 60s;
             transform: translateZ(-200px); /* Move second background layer further back */
+            z-index: 0;
         }
         @keyframes rotate {
             from {
@@ -50,6 +52,8 @@
         footer{
             text-align: center;
             color: #fff;
+            z-index: 1; 
+            position: relative; 
         }
         .con{
             font-size: 2rem;
@@ -60,6 +64,8 @@
            align-items: center;
            justify-content: center;
            gap: 2.5rem; 
+           z-index:1;
+           position: relative;
            
         }
     </style>
