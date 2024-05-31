@@ -1,7 +1,7 @@
    
 document.addEventListener('touchmove', function(e) {e.preventDefault();}, false);
 document.addEventListener('touchstart', function(e) {e.preventDefault();}, false);
-alert("welcome to the Squared Game");
+// alert("welcome to the Squared Game");
 
 
 var canvas = document.getElementById('game');
@@ -1359,28 +1359,70 @@ var presstobegin = introstart.ptb;
 
 var squaredlines = new NewGame();
 
+// var scorealert = function () {
+//     if (squaredlines) {
+//         var score = squaredlines.i.score;
+//         if (score<500) {
+//             alert(score+' bricks computed. Next time work harder.');
+//         } else {
+//             alert(score+' blocks. You are a computer. Go compute.');
+//         }
+//     }
+// };
+
+// function showLevelCompleteMessage(level) {
+//     alert("Congratulations! You have completed level " + level + ". Moving to the next level!");
+// }
+
+
+// GameStatusChanger.end = function () {
+//     console.log("Game end function called");
+//     scorealert();
+//     //scorealert();
+//     squaredlines.newgame();
+// };
+
+// Function to display the modal with a custom message
+function showModal(message) {
+    var modal = document.getElementById("myModal");
+    var modalMessage = document.getElementById("modalMessage");
+    var span = document.getElementsByClassName("close")[0];
+
+    modalMessage.textContent = message;
+    modal.style.display = "block";
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+}
+
 var scorealert = function () {
     if (squaredlines) {
         var score = squaredlines.i.score;
-        if (score<500) {
-            alert(score+' bricks computed. Next time work harder.');
+        if (score < 500) {
+            showModal(score + ' bricks computed. Next time work harder.');
         } else {
-            alert(score+' blocks. You are a computer. Go compute.');
+            showModal(score + ' blocks. You are a computer. Go compute.');
         }
     }
 };
 
 function showLevelCompleteMessage(level) {
-    alert("Congratulations! You have completed level " + level + ". Moving to the next level!");
+    showModal("Congratulations! You have completed level " + level + ". Moving to the next level!");
 }
-
 
 GameStatusChanger.end = function () {
     console.log("Game end function called");
     scorealert();
-    //scorealert();
     squaredlines.newgame();
 };
+
 
 GameStatusChanger.nextlevel = function () {
     console.log("Next level function called");
@@ -1414,3 +1456,62 @@ GameStatusChanger.win =  function () {
     alert(score+' blocks make for a nice computing indeed.');
     squaredlines.newgame();
 };
+
+
+function showDialog() {
+    document.getElementById('dialogBox').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
+  }
+
+  function closeDialog() {
+    document.getElementById('dialogBox').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+  }
+
+  // Show the dialog box when the page loads
+  window.onload = showDialog;
+
+
+//   function showDialog(message, callback) {
+//     const dialogBox = document.getElementById('dialogBox');
+//     const overlay = document.getElementById('overlay');
+//     const dialogMessage = document.getElementById('dialogMessage');
+//     const dialogButton = document.getElementById('dialogButton');
+    
+//     dialogMessage.textContent = message;
+    
+//     dialogBox.style.display = 'block';
+//     overlay.style.display = 'block';
+
+//     dialogButton.onclick = function() {
+//         dialogBox.style.display = 'none';
+//         overlay.style.display = 'none';
+//         if (callback) callback();
+//     };
+// }
+
+// var scorealert = function () {
+//     if (squaredlines) {
+//         var score = squaredlines.i.score;
+//         if (score < 500) {
+//             showDialog(score + ' bricks computed. Next time work harder.');
+//         } else {
+//             showDialog(score + ' blocks. You are a computer. Go compute.');
+//         }
+//     }
+// };
+
+// function showLevelCompleteMessage(level) {
+//     showDialog("Congratulations! You have completed level " + level + ". Moving to the next level!");
+// }
+
+// GameStatusChanger.end = function () {
+//     console.log("Game end function called");
+//     scorealert();
+//     squaredlines.newgame();
+// };
+
+// // Call this function to start the game and initialize the dialog
+// window.onload = function() {
+//     showDialog("Welcome to the Squared Game");
+// };
