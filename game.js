@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Hide the welcome overlay after 3 seconds
     setTimeout(function() {
         welcomeOverlay.classList.add('hidden');
-    }, 5000);
+    }, 3000);
 });
 
 var canvas = document.getElementById('game');
