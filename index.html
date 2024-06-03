@@ -62,13 +62,15 @@
            gap: 2.5rem; 
            
         }
-        #undoButton{
+        #undoButton, #restartButton {
             justify-content: center;
-            background-color:greenyellow;
-        }
-        #restartButton{
-            justify-content: center;
-            background-color:greenyellow
+            background-color: greenyellow;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
         }
     </style>
     
@@ -81,7 +83,7 @@
 <body>
   <div class="background-layer"></div>
   <div id="container">
-    <canvas id="game"></canvas><br>
+    <canvas id="game"></canvas>
     <button id="undoButton">Undo</button>
     <button id="restartButton">Restart</button>
     <footer>
@@ -97,7 +99,6 @@
         <p></p>
       </footer>
   </div>  
-</div>
 
   <script src="game.js"></script>
 </body>
