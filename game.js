@@ -1,13 +1,11 @@
-const gameStateStack = [];
+   
 document.addEventListener('touchmove', function(e) {e.preventDefault();}, false);
 document.addEventListener('touchstart', function(e) {e.preventDefault();}, false);
-alert("welcome to the Squared Game");
+// alert("welcome to the Squared Game");
 
 
 var canvas = document.getElementById('game');
 var context = canvas.getContext('2d');
-const undoButton = document.getElementById('undoButton');
-const restartButton = document.getElementById('restartButton');
 
 var rs = {x: 1, y: 1, fx:100, fy: 100, marw: 1, marh: 1};
 
@@ -1361,28 +1359,70 @@ var presstobegin = introstart.ptb;
 
 var squaredlines = new NewGame();
 
+// var scorealert = function () {
+//     if (squaredlines) {
+//         var score = squaredlines.i.score;
+//         if (score<500) {
+//             alert(score+' bricks computed. Next time work harder.');
+//         } else {
+//             alert(score+' blocks. You are a computer. Go compute.');
+//         }
+//     }
+// };
+
+// function showLevelCompleteMessage(level) {
+//     alert("Congratulations! You have completed level " + level + ". Moving to the next level!");
+// }
+
+
+// GameStatusChanger.end = function () {
+//     console.log("Game end function called");
+//     scorealert();
+//     //scorealert();
+//     squaredlines.newgame();
+// };
+
+// Function to display the modal with a custom message
+function showModal(message) {
+    var modal = document.getElementById("myModal");
+    var modalMessage = document.getElementById("modalMessage");
+    var span = document.getElementsByClassName("close")[0];
+
+    modalMessage.textContent = message;
+    modal.style.display = "block";
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+}
+
 var scorealert = function () {
     if (squaredlines) {
         var score = squaredlines.i.score;
-        if (score<500) {
-            alert(score+' bricks computed. Next time work harder.');
+        if (score < 500) {
+            showModal(score + ' bricks computed. Next time work harder.');
         } else {
-            alert(score+' blocks. You are a computer. Go compute.');
+            showModal(score + ' blocks. You are a computer. Go compute.');
         }
     }
 };
 
 function showLevelCompleteMessage(level) {
-    alert("Congratulations! You have completed level " + level + ". Moving to the next level!");
+    showModal("Congratulations! You have completed level " + level + ". Moving to the next level!");
 }
-
 
 GameStatusChanger.end = function () {
     console.log("Game end function called");
     scorealert();
-    //scorealert();
     squaredlines.newgame();
 };
+
 
 GameStatusChanger.nextlevel = function () {
     console.log("Next level function called");
@@ -1416,33 +1456,62 @@ GameStatusChanger.win =  function () {
     alert(score+' blocks make for a nice computing indeed.');
     squaredlines.newgame();
 };
-// Add event listeners for buttons
-undoButton.addEventListener('click', undo);
-restartButton.addEventListener('click', restart);
-function undo() {
-    if (gameStateStack.length > 1) { // Ensure there's a state to undo
-        gameStateStack.pop(); // Remove the current state
-        const previousState = gameStateStack[gameStateStack.length - 1]; // Get the previous state
-        // Restore the previous state (implement your logic)
-        console.log('Undoing last move...');
-        // Example: If you have a function to restore the game state, call it here
-        // restoreGameState(previousState);
-    } else {
-        console.log('Nothing to undo');
-    }
-}
 
-function restart() {
-    // Reset the game state (implement your logic)
-    console.log('Restarting game...');
-    // Example: If you have a function to reset the game state, call it here
-    // resetGameState();
-    // Clear the game state stack
-    gameStateStack.length = 0;
-    // Add the initial game state to the stack
-    gameStateStack.push(initialGameState);
-}
 
-// Initial game state (replace this with your actual initial game state)
-const initialGameState = {}; // Implement your logic for initial game state
-gameStateStack.push(initialGameState);
+function showDialog() {
+    document.getElementById('dialogBox').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
+  }
+
+  function closeDialog() {
+    document.getElementById('dialogBox').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+  }
+
+  // Show the dialog box when the page loads
+  window.onload = showDialog;
+
+
+//   function showDialog(message, callback) {
+//     const dialogBox = document.getElementById('dialogBox');
+//     const overlay = document.getElementById('overlay');
+//     const dialogMessage = document.getElementById('dialogMessage');
+//     const dialogButton = document.getElementById('dialogButton');
+    
+//     dialogMessage.textContent = message;
+    
+//     dialogBox.style.display = 'block';
+//     overlay.style.display = 'block';
+
+//     dialogButton.onclick = function() {
+//         dialogBox.style.display = 'none';
+//         overlay.style.display = 'none';
+//         if (callback) callback();
+//     };
+// }
+
+// var scorealert = function () {
+//     if (squaredlines) {
+//         var score = squaredlines.i.score;
+//         if (score < 500) {
+//             showDialog(score + ' bricks computed. Next time work harder.');
+//         } else {
+//             showDialog(score + ' blocks. You are a computer. Go compute.');
+//         }
+//     }
+// };
+
+// function showLevelCompleteMessage(level) {
+//     showDialog("Congratulations! You have completed level " + level + ". Moving to the next level!");
+// }
+
+// GameStatusChanger.end = function () {
+//     console.log("Game end function called");
+//     scorealert();
+//     squaredlines.newgame();
+// };
+
+// // Call this function to start the game and initialize the dialog
+// window.onload = function() {
+//     showDialog("Welcome to the Squared Game");
+// };
