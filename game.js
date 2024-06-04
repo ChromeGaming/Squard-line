@@ -524,6 +524,7 @@ var Instruments = function () {
 
         };
 
+
         return Counter;
     }();
     
@@ -619,6 +620,13 @@ var Instruments = function () {
     Instruments.prototype.timereset = function () {this.timeboard.reset();};
     
     Instruments.prototype.scorereset = function () {this.scoreboard.reset();};
+
+    Instruments.prototype.a1 = function() {
+        squaredlines.saveState(); // Save state before modifying
+        this.score = this.score + 1;
+        this.scoreboard.a1();
+    };
+    
     
     Instruments.prototype.r1 = function () {
         if (this.timeboard.r1()) {return true;}
@@ -1252,6 +1260,7 @@ var NewGame = function () {
     
     function NewGame () {
         this.gamestatus = 'intro';
+        this.stateStack = []; // Stack to store game states for undo functionality
         this.touched = {
             r: false,
             b: false
@@ -1302,6 +1311,32 @@ var NewGame = function () {
                     r: false,
                     b: false
                 };
+    };
+
+    // Method to save the current game state
+    NewGame.prototype.saveState = function() {
+        // Make a deep copy of the current state and push it onto the stack
+        this.stateStack.push({
+            score: JSON.parse(JSON.stringify(this.i.score)),
+            level: JSON.parse(JSON.stringify(this.i.level)),
+            timeboard: JSON.parse(JSON.stringify(this.i.timeboard.values)),
+            scoreboard: JSON.parse(JSON.stringify(this.i.scoreboard.values)),
+            // Include other relevant state information if needed
+        });
+    };
+
+    NewGame.prototype.undo = function() {
+        if (this.stateStack.length > 0) {
+            var lastState = this.stateStack.pop();
+            this.i.score = lastState.score;
+            this.i.level = lastState.level;
+            this.i.timeboard.values = lastState.timeboard;
+            this.i.scoreboard.values = lastState.scoreboard;
+            this.i.redraw(); // Redraw the game to reflect the restored state
+        }
+    };
+    NewGame.prototype.performAction = function() {
+        this.saveState();
     };
     
     return NewGame;
@@ -1471,47 +1506,6 @@ function showDialog() {
   // Show the dialog box when the page loads
   window.onload = showDialog;
 
-
-//   function showDialog(message, callback) {
-//     const dialogBox = document.getElementById('dialogBox');
-//     const overlay = document.getElementById('overlay');
-//     const dialogMessage = document.getElementById('dialogMessage');
-//     const dialogButton = document.getElementById('dialogButton');
-    
-//     dialogMessage.textContent = message;
-    
-//     dialogBox.style.display = 'block';
-//     overlay.style.display = 'block';
-
-//     dialogButton.onclick = function() {
-//         dialogBox.style.display = 'none';
-//         overlay.style.display = 'none';
-//         if (callback) callback();
-//     };
-// }
-
-// var scorealert = function () {
-//     if (squaredlines) {
-//         var score = squaredlines.i.score;
-//         if (score < 500) {
-//             showDialog(score + ' bricks computed. Next time work harder.');
-//         } else {
-//             showDialog(score + ' blocks. You are a computer. Go compute.');
-//         }
-//     }
-// };
-
-// function showLevelCompleteMessage(level) {
-//     showDialog("Congratulations! You have completed level " + level + ". Moving to the next level!");
-// }
-
-// GameStatusChanger.end = function () {
-//     console.log("Game end function called");
-//     scorealert();
-//     squaredlines.newgame();
-// };
-
-// // Call this function to start the game and initialize the dialog
-// window.onload = function() {
-//     showDialog("Welcome to the Squared Game");
-// };
+  document.getElementById('undoButton').addEventListener('click', function() {
+    squaredlines.undo();
+});
