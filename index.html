@@ -1,20 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <meta name="author" content="Heartland Games">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="msapplication-tap-highlight" content="no" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="minimal-ui" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="viewport" content="width=device-width, user-scalable=no" />
-
-    <meta name="format-detection" content="telephone=no">
-    <meta name="msapplication-tap-highlight" content="no">
-    <meta name="viewport"
-        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <title>Squard-line</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <script src="https://kit.fontawesome.com/a2c23c1a99.js" crossorigin="anonymous"></script>
     <style>
         body {
@@ -57,25 +49,22 @@
         footer {
             text-align: center;
             color: #fff;
-            z-index: 1; 
             position: relative; 
+            padding: 20px 0;
         }
 
-        .con {
+        .social {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem; 
+            color: #fff;
+        }
+
+        .social a {
             font-size: 2rem;
             color: #fff;
         }
-        .social{
-           display: flex;
-           align-items: center;
-           justify-content: center;
-           gap: 2.5rem; 
-           z-index:1;
-           position: relative;
-           
-        }
 
-       
         #dialogBox {
             display: none;
             position: fixed;
@@ -99,17 +88,14 @@
             border: none;
             background-color: transparent;
             color: black;
-
         }
 
         #dialogBox button:hover {
             color: darkgreen;
-
         }
 
         #dialogBox button:active {
             color: darkgreen;
-          
         }
 
         #overlay {
@@ -123,7 +109,6 @@
             z-index: 999;
         }
 
-
         .modal {
             display: none;
             position: fixed;
@@ -133,7 +118,6 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgb(0, 0, 0);
             background-color: rgba(0, 0, 0, 0.4);
             padding-top: 60px;
         }
@@ -142,30 +126,31 @@
             background-image: linear-gradient(to bottom right, rgb(255, 255, 208), rgb(255, 192, 203));
             margin: 5% auto;
             padding: 20px;
-            margin-top: 200px;
             border: 1px solid #000000;
-            width: 30%;
+            width: 80%;
+            max-width: 400px; /* Limit width on larger screens */
         }
-
 
         .close {
             color: #000000;
             font-size: 14px;
             font-weight: bold;
+            cursor: pointer;
         }
 
         .close:hover,
         .close:focus {
             color: rgb(13, 146, 1);
             text-decoration: none;
-            cursor: pointer;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .modal-content {
+                width: 90%; /* Adjust width for smaller screens */
+            }
         }
     </style>
-
-    <title>Squared Lines</title>
-    <link rel="icon" type="image/x-icon" href="./favicon.ico">
 </head>
-
 <body>
     <div class="background-layer"></div>
     <div class="background-layer"></div>
@@ -175,36 +160,27 @@
             <h2>Made with ❤️ by Chrome Gaming</h2>
             <p>Connect with Me</p>
             <div class="social">
-                <a class="con" href="https://www.linkedin.com/company/chromegaming/" target="_blank"><i
-                        class="fa-brands fa-linkedin"></i></a>
-                <a class="con" href="https://github.com/GameSphere-MultiPlayer" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <a class="con" href="https://discord.gg/rZb46cCMmK" target="_blank"><i class="fa-brands fa-discord"></i></a>
-                <a class="con" href="mailto:gamespheremultiplayer@gmail.com"><i
-                        class="fa-light fa-square-envelope"></i></a>
+                <a href="https://www.linkedin.com/company/chromegaming/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/GameSphere-MultiPlayer" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://discord.gg/rZb46cCMmK" target="_blank"><i class="fa-brands fa-discord"></i></a>
+                <a href="mailto:gamespheremultiplayer@gmail.com"><i class="fa-light fa-square-envelope"></i></a>
             </div>
             <p class="opyright">© Copyright Squard Line @Durgesh4993</p>
         </footer>
     </div>
-
     <div id="overlay"></div>
-
     <div id="dialogBox">
         <h2>Welcome to the Squared Game</h2>
         <button onclick="closeDialog()">LET'S PLAY!</button>
     </div>
-
     <div id="myModal" class="modal">
         <div class="modal-content">
             <p id="modalMessage"></p>
             <div class="close">RESTART</div>
-
         </div>
     </div>
-
     <script src="game.js"></script>
     <script>
-
     </script>
 </body>
-
 </html>
