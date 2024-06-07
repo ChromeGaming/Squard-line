@@ -17,6 +17,7 @@
         content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <script src="https://kit.fontawesome.com/a2c23c1a99.js" crossorigin="anonymous"></script>
     <style>
+
         body {
             background-color: #1e1e1e;
             margin: 0;
@@ -54,7 +55,7 @@
             }
         }
 
-        footer {
+        /* footer {
             text-align: center;
             color: #fff;
         }
@@ -63,16 +64,106 @@
             font-size: 2rem;
             color: #fff;
         }
-
         .social {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 2.5rem;
 
+        } */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
         }
 
-       
+        .footer h2, .footer h3 {
+            margin-bottom: 10px;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        .social a {
+            color: #fff;
+            margin: 0 5px;
+            font-size: 29px;
+            transition: color 0.3s ease, transform 0.3s ease, z-index 0.3s ease; /* Adding transition effect */
+            position: relative; /* Make z-index work */
+        }
+
+        .social a:hover {
+            color: #777373; /* Change color on hover */
+            transform: translateY(-3px); /* Lift the icon on hover */
+         z-index: 1; /* Bring the icon to the front */
+        }
+
+        .Copyright {
+            margin-bottom: 0;
+        }
+
+        .footer-links {
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 5px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #777373;
+        }
+
+        .footer-subscribe {
+            margin: 20px 0;
+        }
+
+        .footer-subscribe form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-subscribe input[type="email"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .footer-subscribe button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #555;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .footer-subscribe button:hover {
+            background-color: #777373;
+        }
+
+        .footer-contact p {
+            margin: 10px 0;
+        }
+
+        .footer-contact a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact a:hover {
+            color: #777373;
+        }
+
         #dialogBox {
             display: none;
             position: fixed;
@@ -157,6 +248,8 @@
             text-decoration: none;
             cursor: pointer;
         }
+        
+
     </style>
 
     <title>Squared Lines</title>
@@ -164,23 +257,54 @@
 </head>
 
 <body>
+
     <div class="background-layer"></div>
     <div class="background-layer"></div>
     <div id="container">
         <canvas id="game"></canvas>
-        <footer>
+        <!-- <footer class="footer">
             <h2>Made with ❤️ by Chrome Gaming</h2>
             <p>Connect with Me</p>
             <div class="social">
-                <a class="con" href="https://www.linkedin.com/company/chromegaming/"><i
-                        class="fa-brands fa-linkedin"></i></a>
+                <a class="con" href="https://www.linkedin.com/company/chromegaming/"><i class="fa-brands fa-linkedin"></i></a>
                 <a class="con" href="https://github.com/GameSphere-MultiPlayer"><i class="fa-brands fa-github"></i></a>
                 <a class="con" href="https://discord.gg/rZb46cCMmK"><i class="fa-brands fa-discord"></i></a>
-                <a class="con" href="mailto:gamespheremultiplayer@gmail.com"><i
-                        class="fa-light fa-square-envelope"></i></a>
+                <a class="con" href="mailto:gamespheremultiplayer@gmail.com"><i class="fa-light fa-square-envelope"></i></a>
             </div>
-            <p class="opyright">© Copyright Squard Line @Durgesh4993</p>
+            <p class="Copyright">© Copyright Squard Line @Durgesh4993</p>
+        </footer> -->
+        <footer class="footer">
+            <h2>Made with ❤️ by Chrome Gaming</h2>
+            <p>Connect with Me</p>
+            <div class="social">
+                <a class="con" href="https://www.linkedin.com/company/chromegaming/"><i class="fa-brands fa-linkedin"></i></a>
+                <a class="con" href="https://github.com/GameSphere-MultiPlayer"><i class="fa-brands fa-github"></i></a>
+                <a class="con" href="https://discord.gg/rZb46cCMmK"><i class="fa-brands fa-discord"></i></a>
+                <a class="con" href="mailto:gamespheremultiplayer@gmail.com"><i class="fa-light fa-square-envelope"></i></a>
+            </div>
+            <p class="Copyright">© Copyright Squard Line @Durgesh4993</p>
+            
+            <div class="footer-links">
+                <a href="/about">About Us</a> |
+                <a href="/contact">Contact</a> |
+                <a href="/privacy">Privacy Policy</a> |
+                <a href="/terms">Terms of Service</a>
+            </div>
+            
+            <div class="footer-subscribe">
+                <h3>Subscribe to our Newsletter</h3>
+                <form>
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            
+            <div class="footer-contact">
+                <p>Contact us: <a href="mailto:support@chromegaming.com">support@chromegaming.com</a></p>
+                <p>Phone: +1 (123) 456-7890</p>
+            </div>
         </footer>
+        
     </div>
 
     <div id="overlay"></div>
@@ -200,8 +324,8 @@
 
     <script src="game.js"></script>
     <script>
-
     </script>
+
 </body>
 
 </html>
