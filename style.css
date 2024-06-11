@@ -5,6 +5,8 @@
     text-decoration: none;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     scroll-behavior: smooth;
+    box-sizing: border-box;
+    
 }
 .navbar{
     background-color: #151515;
@@ -15,6 +17,27 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.navdiv button{
+  animation: round 1s infinite;
+  border: solid #151515 5px;
+}
+@keyframes round{
+  0%{
+    border-top: solid 5px #0e2549;
+  }
+  25%{
+    border-right: solid 5px #0a5921;
+  }
+  50%{
+    border-bottom: solid 5px #951b99;
+  }
+  75%{
+    border-left: solid 5px #0a5921;
+  }
+  100%{
+    border-top: solid 5px #0e2549;
+  }
 }
 .logo a{
     font-size: 35px;
@@ -215,6 +238,7 @@ button a{
     border: 2px dashed #94dec3;
     border-radius: 5px;
 }
+
 .leaderboard > .image2{
     display: flex;
     justify-content: end;
@@ -425,4 +449,212 @@ footer a:hover{
         fill: #fffdef;
       }
       
+}
+
+@media screen and (max-width: 1050px) and (min-width:768px){
+  .modes{
+    display: none;
+  }
+  .video1{
+    display: none;
+  }
+  .leaderboard a{
+    font-size: x-large;
+  }
+  .content{
+    display: none;
+  }
+}
+@media screen and (max-width: 370px) and (min-width:0px){
+  body{
+    margin: 0;
+    padding: 0;
+  }
+  .content{
+    display: none;
+  }
+  .logo > a{
+    font-size:30px
+  }   
+  .navdiv > ul> li{
+    display: none;
+  }
+  .video1{
+    visibility: hidden;
+    display: none;
+  }
+  .game-info{
+    height: 80vh;
+  }
+  .game-info img{
+    display: none;
+    margin: 0 auto;
+    clear: both;
+  }
+  .content1{
+    position: absolute; /* Set position absolute */
+    top: 90rem; /* Position below the image */
+    left: 0; /* Align with the left side of the container */
+    width: 100%; /* Take full width of the container */
+  }
+  .content1 > h1{
+    transform: translateY(-550px);
+    text-align: center;
+    font-size: 20px;
+  }
+  .content1 > p{
+    transform: translateY(-300px);
+    font-size: 18px;
+    text-align: center; /* Center the content */
+    padding: 0 10px;
+    font-style: italic;
+  }
+  .modes{
+    display: none;
+  }
+  .leaderboard a{
+    display: none;
+  }
+  #footer{
+    font-size: 10px;
+    padding: 0 2px;
+  }
+  #footer a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .leaderboard p{
+    transform: translateY(50px);
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 768px) and (min-width:370px) {
+  body{
+    margin: 0;
+    padding: 0;
+  }
+  .content{
+    display: none;
+  }
+  .logo > a{
+    font-size:30px
+  }   
+  .navdiv > ul> li{
+    display: none;
+  }
+  .video1{
+    visibility: hidden;
+    display: none;
+  }
+  .game-info{
+    height: 80vh;
+  }
+  .game-info img{
+    display: none;
+    margin: 0 auto;
+    clear: both;
+  }
+  .content1{
+    position: absolute;
+    top: 90rem;
+    left: 0;
+    width: 100%;
+  }
+  .content1 > h1{
+    transform: translateY(-550px);
+    text-align: center;
+    font-size: 20px;
+  }
+  .content1 > p{
+    transform: translateY(-300px);
+    font-size: 18px;
+    text-align: center; /* Center the content */
+    padding: 0 10px;
+    font-style: italic;
+  }
+  .modes{
+    display: none;
+  }
+  .leaderboard p{
+    /* transform: translateY(50px); */
+    font-size: 22px;
+  }
+  .leaderboard a{
+    display: none;
+  }
+  #footer{
+    font-size: 10px;
+    padding: 0 2px;
+  }
+  #footer a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+section{
+  display: flex;
+	align-items: center;
+	justify-content: center;
+  transform: translateY(-120px);
+}
+
+.content h2 {
+	color: #fff;
+	font-size: 5em;
+	position: absolute;
+	transform: translate(-50%, -50%);
+}
+
+.content h2:nth-child(1) {
+	color: transparent;
+	-webkit-text-stroke: 2px #8338ec;
+}
+
+.content h2:nth-child(2) {
+	color: #94dec3;
+	animation: animate 4s ease-in-out infinite;
+}
+
+@keyframes animate {
+	0%,
+	100% {
+		clip-path: polygon(
+			0% 45%,
+			16% 44%,
+			33% 50%,
+			54% 60%,
+			70% 61%,
+			84% 59%,
+			100% 52%,
+			100% 100%,
+			0% 100%
+		);
+	}
+
+	50% {
+		clip-path: polygon(
+			0% 60%,
+			15% 65%,
+			34% 66%,
+			51% 62%,
+			67% 50%,
+			84% 45%,
+			100% 46%,
+			100% 100%,
+			0% 100%
+		);
+	}
+}
+@media screen and (min-width:1441px) and (max-width:2570px) {
+  .leaderboard a{
+    display: none;
+  }
+  .leaderboard p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+  }
 }
