@@ -104,6 +104,8 @@
             border: none;
             background-color: transparent;
             color: black;
+            font-weight: bolder;
+            margin-left: 40%;
 
         }
 
@@ -153,11 +155,20 @@
         }
 
 
-        .close {
-            color: #000000;
-            font-size: 14px;
-            font-weight: bold;
-        }
+        
+.close {
+    width: 75PX;
+    background: #C19A68;
+    color: BLACK;
+    font-size: 14px;
+    font-weight: bold;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10PX;
+    margin-left: 40%;
+}
 
         .close:hover,
         .close:focus {
@@ -195,7 +206,7 @@
 
     <div id="dialogBox">
         <h2>Welcome to the Squared Game</h2>
-        <button onclick="closeDialog()">LET'S PLAY!</button>
+        <button onclick="closeDialog()">START</button>
     </div>
 
     <div id="myModal" class="modal">
