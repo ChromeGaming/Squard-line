@@ -1,104 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="author" content="Heartland Games">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Heartland Games" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="minimal-ui" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="viewport" content="width=device-width, user-scalable=no"/>
-    
-    <meta name="format-detection" content="telephone=no">
-    <meta name="msapplication-tap-highlight" content="no">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-    
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta
+      name="viewport"
+      content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width"
+    />
+    <script
+      src="https://kit.fontawesome.com/a2c23c1a99.js"
+      crossorigin="anonymous"
+    ></script>
     <style>
-        body {
-            background-color: #1e1e1e; /* Dark gray background */
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            perspective: 1000px; /* Add perspective for 3D effect */
+      body {
+        background-color: #1e1e1e; /* Dark gray background */
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        perspective: 1000px; /* Add perspective for 3D effect */
+      }
+
+      .background-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.05),
+          rgba(0, 0, 0, 0.1)
+        );
+        animation: rotate 30s infinite linear;
+        transform: translateZ(-100px); /* Move background layer back */
+      }
+      .background-layer:nth-child(2) {
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1),
+          rgba(0, 0, 0, 0.2)
+        );
+        animation-duration: 60s;
+        transform: translateZ(
+          -200px
+        ); /* Move second background layer further back */
+      }
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
         }
-       
-        .background-layer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-            animation: rotate 30s infinite linear;
-            transform: translateZ(-100px); /* Move background layer back */
+        to {
+          transform: rotate(360deg);
         }
-        .background-layer:nth-child(2) {
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
-            animation-duration: 60s;
-            transform: translateZ(-200px); /* Move second background layer further back */
-        }
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
+      }
+
+      footer {
+        text-align: center;
+        color: #fff;
+      }
+      .con {
+        font-size: 2rem;
+        color: #fff;
+      }
+      .social {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+      }
+      .help {
+        top: 0px;
+        width: 430px;
+        height: 482px;
+        float: left;
+        overflow: hidden;
+        position: absolute;
+        color: white;
+        background: transparent;
+        padding: 9px;
+        text-align: justify;
+        font-size: 13px;
+        box-shadow: 2px 2px 20px grey;
+      }
+      .help h3 {
+        color: darkorange;
+        text-align: center;
+      }
+
+
     </style>
     
 
 <title>Squared Lines</title>
 <link rel="icon" type="image/x-icon" href="./favicon.ico">
 
-</head>
 
-<body>
+    <title>Squared Lines</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+  </head>
 
-    <div class="background-layer"></div>
+  <body>
+
     <div class="background-layer"></div>
    
     <div id="container">
-        
-        <canvas id="game"></canvas>
-        <button id="undoButton">Undo</button>
-        <footer>
-            <h2>Made with ❤️ by Chrome Gaming</h2>
-            <p>Connect with Me</p>
-            <div class="social">
-                <a class="con" href="https://www.linkedin.com/company/chromegaming/"><i
-                        class="fa-brands fa-linkedin"></i></a>
-                <a class="con" href="https://github.com/GameSphere-MultiPlayer"><i class="fa-brands fa-github"></i></a>
-                <a class="con" href="https://discord.gg/rZb46cCMmK"><i class="fa-brands fa-discord"></i></a>
-                <a class="con" href="mailto:gamespheremultiplayer@gmail.com"><i
-                        class="fa-light fa-square-envelope"></i></a>
-            </div>
-            <p class="opyright">© Copyright Squard Line @Durgesh4993</p>
-        </footer>
-    </div>
 
-    <div id="overlay"></div>
-
-    <div id="dialogBox">
-        <h2>Welcome to the Squared Game</h2>
-        <button onclick="closeDialog()">LET'S PLAY!</button>
-    </div>
-
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <p id="modalMessage"></p>
-            <div class="close">RESTART</div>
-
+      <div class="help">
+        <h3>How to play?</h3>
+        <div class="content">
+          <b style="color: lightblue">Gameplay:</b>
+          <br /><span style="color: green">>></span> After starting the game,
+          you'll see the game <br /><span style="color: greenyellow">>></span>
+          Your goal is to cut the board into procedurally declared blocks.
+          <br /><span style="color: green">>></span> To cut a block, tap on the
+          board to select the squares you want to include in the block.
+          <br /><span style="color: greenyellow">>></span> Once you've selected
+          a block, it will be highlighted.
         </div>
+        <div class="content">
+          <br />
+          <b style="color: lightblue">Scoring:</b>
+          <br /><span style="color: green">>></span> Your score is calculated
+          based on the number of blocks you successfully cut. <br /><span
+            style="color: greenyellow"
+            >>></span
+          >
+          The game will alert you when you complete a level or reach certain
+          milestones in your score.
+        </div>
+        <div class="content">
+          <br />
+          <b style="color: lightblue">Winning:</b>
+          <br /><span style="color: green">>></span> If you reach level 128, you
+          win the game. <br /><span style="color: greenyellow">>></span>
+          Alternatively, you can win by completing all levels with a high score.
+        </div>
+        <div class="content">
+          <br />
+          <b style="color: lightblue">Level Up:</b>
+          <br /><span style="color: green">>></span> As you progress through
+          levels, the difficulty may increase. <br /><span
+            style="color: greenyellow"
+            >>></span
+          >
+          To advance to the next level, successfully complete the current level
+          by cutting all the required blocks. <br /><span style="color: green"
+            >>></span
+          >
+          Each level introduces new challenges and requires strategic thinking
+          to complete efficiently.
+        </div>
+        <div class="content">
+          <br />
+          <b style="color: lightblue">Game Over:</b>
+          <br /><span style="color: green">>></span> If you make a mistake or
+          fail to complete a level within the time limit, the game ends.
+          <br /><span style="color: greenyellow">>></span> You'll have the
+          option to start a new game from the beginning.
+        </div>
+      </div>
+      <canvas id="game"></canvas>
+      <footer>
+        <h2>Made by ❤️ by Chrome Gaming</h2>
+        <p>Connect with Me</p>
+        <div class="social">
+          <a class="con" href="https://www.linkedin.com/company/chromegaming/"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+          <a class="con" href="https://github.com/GameSphere-MultiPlayer"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+          <a class="con" href="https://discord.gg/rZb46cCMmK"
+            ><i class="fa-brands fa-discord"></i
+          ></a>
+          <a class="con" href="mailto:gamespheremultiplayer@gmail.com"
+            ><i class="fa-light fa-square-envelope"></i
+          ></a>
+        </div>
+        <p class="opyright">© Copyright Squard Line @Durgesh4993</p>
+        <p></p>
+      </footer>
     </div>
 
     <script src="game.js"></script>
-    
-  <div class="background-layer"></div>
-  <div id="container">
-    <canvas id="game"></canvas>
-  </div>  
-  <script src="game.js"></script>
-</body>
+
+  </body>
 </html>
+
