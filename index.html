@@ -248,16 +248,70 @@
             text-decoration: none;
             cursor: pointer;
         }
-        
+        body.light-theme {
+            background-color: #fff;
+            color: #333;
+        }
 
+        body.dark-theme {
+            background-color: #1e1e1e;
+            color: #fff;
+        }
+        
+         /* Style the theme toggle container */
+        .theme-toggle {
+            display: flex;
+            /* align-items: center; */
+            padding: 25px;
+            margin-left: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* Style the button */
+        #themeButton {
+            border: none;
+            background-color: transparent;
+            padding: 5px 10px;
+            font-size: 35px;
+            color: inherit; /* Inherit color from parent element */
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Hide the first icon (sun) initially */
+        .fa-sun {
+            display: none;
+        }
+
+        /* Show the moon icon by default (assuming dark theme is loaded first) */
+        .fa-moon {
+            color: #ffc107; /* Adjust color as needed */
+        }
+
+        /* Toggle icon visibility and color based on body theme class */
+        body.light-theme {
+            .fa-sun {
+                display: block;
+                color: #f08080;
+            }
+            .fa-moon {
+                display: none;
+            }
+        }
     </style>
 
     <title>Squared Lines</title>
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
 </head>
 
-<body>
-
+<body class="dark-theme">
+    <div class="theme-toggle">
+        <button id="themeButton">
+          <i class="fa-solid fa-sun"></i> <i class="fa-solid fa-moon"></i> </button>
+      </div>      
+      
     <div class="background-layer"></div>
     <div class="background-layer"></div>
     <div id="container">
@@ -324,7 +378,17 @@
 
     <script src="game.js"></script>
     <script>
-    </script>
+        window.onload = function() {
+          const toggleButton = document.getElementById('themeButton');
+          const body = document.body;
+        
+          toggleButton.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            body.classList.toggle('dark-theme');
+          });
+        };
+        </script>
+        
 
 </body>
 
