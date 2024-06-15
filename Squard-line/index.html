@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="author" content="Heartland Games">
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <script src="https://kit.fontawesome.com/a2c23c1a99.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #1e1e1e; /* Dark gray background */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            perspective: 1000px; /* Add perspective for 3D effect */
+        }
+        .background-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+            animation: rotate 30s infinite linear;
+            transform: translateZ(-100px); /* Move background layer back */
+        }
+        .background-layer:nth-child(2) {
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
+            animation-duration: 60s;
+            transform: translateZ(-200px); /* Move second background layer further back */
+        }
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        #game{
+            margin-left: 320px;
+        }
+        footer{
+            text-align: center;
+            color: #fff;
+        }
+        .con{
+            font-size: 2rem; 
+            color: #fff;
+        }
+        .social{
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           gap: 2.5rem; 
+           
+        }
+        @media (max-width: 1024px) {
+            #game {
+                background-color: rgb(11, 11, 11);
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 70%; 
+                height: 100vh;
+            }
+            .background-layer{
+                position: absolute;
+            }
+            footer {
+                position: absolute;
+                top: 100vh;
+                /* bottom: 0; */
+                left: 140px;
+                width: 100%;
+                height: 30%;
+            }
+            #container{
+                position: fixed;
+                top: 50%;
+                left: 70%;
+                transform: translate(-50%, -50%);
+                width: 80vh;
+            }
+        }
+        @media (max-width: 477px) {
+            #game {
+                background-color: rgb(11, 11, 11);
+                position: absolute;
+                top: 0;
+                left: 30px;
+                width: 70%; 
+                height: 80vh;
+            }
+            
+            footer {
+                position: absolute;
+                left: 0%;
+            }
+            /* #container{
+                position: fixed;
+                top: 50%;
+                left: 80%;
+                transform: translate(-50%, -50%);
+                width: 100vh;
+                align-items: center;
+            } */
+        }
+    </style>
+    
+
+<title>Squared Lines</title>
+<link rel="icon" type="image/x-icon" href="./favicon.ico">
+
+</head>
+
+<body>
+  <div class="background-layer"></div>
+  <div id="container">
+    <canvas id="game"></canvas>
+    <footer>
+        <h2>Made by ❤️ by Chrome Gaming </h2>
+        <p> Connect with Me </p>
+        <div class="social">
+            <a class="con" href="https://www.linkedin.com/company/chromegaming/"><i class="fa-brands fa-linkedin"></i></a> 
+            <a class="con" href="https://github.com/GameSphere-MultiPlayer"><i class="fa-brands fa-github"></i></a>
+            <a class="con" href="https://discord.gg/rZb46cCMmK"><i class="fa-brands fa-discord"></i></a>
+            <a class="con" href="mailto:gamespheremultiplayer@gmail.com"><i class="fa-light fa-square-envelope"></i></a>
+        </div>
+            <p class="copyright">© Copyright Squard Line @Durgesh4993</p>
+        <p></p>
+      </footer>
+  </div>  
+
+  <script src="game.js"></script>
+</body>
+</html>
