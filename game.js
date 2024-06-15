@@ -2,7 +2,14 @@
 document.addEventListener('touchmove', function(e) {e.preventDefault();}, false);
 document.addEventListener('touchstart', function(e) {e.preventDefault();}, false);
 // alert("welcome to the Squared Game");
+document.addEventListener('DOMContentLoaded', function() {
+    var welcomeOverlay = document.getElementById('welcome-overlay');
 
+    // Hide the welcome overlay after 3 seconds
+    setTimeout(function() {
+        welcomeOverlay.classList.add('hidden');
+    }, 3000);
+});
 
 var canvas = document.getElementById('game');
 var context = canvas.getContext('2d');
@@ -1394,70 +1401,28 @@ var presstobegin = introstart.ptb;
 
 var squaredlines = new NewGame();
 
-// var scorealert = function () {
-//     if (squaredlines) {
-//         var score = squaredlines.i.score;
-//         if (score<500) {
-//             alert(score+' bricks computed. Next time work harder.');
-//         } else {
-//             alert(score+' blocks. You are a computer. Go compute.');
-//         }
-//     }
-// };
-
-// function showLevelCompleteMessage(level) {
-//     alert("Congratulations! You have completed level " + level + ". Moving to the next level!");
-// }
-
-
-// GameStatusChanger.end = function () {
-//     console.log("Game end function called");
-//     scorealert();
-//     //scorealert();
-//     squaredlines.newgame();
-// };
-
-// Function to display the modal with a custom message
-function showModal(message) {
-    var modal = document.getElementById("myModal");
-    var modalMessage = document.getElementById("modalMessage");
-    var span = document.getElementsByClassName("close")[0];
-
-    modalMessage.textContent = message;
-    modal.style.display = "block";
-
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-}
-
 var scorealert = function () {
     if (squaredlines) {
         var score = squaredlines.i.score;
-        if (score < 500) {
-            showModal(score + ' bricks computed. Next time work harder.');
+        if (score<500) {
+            alert(score+' bricks computed. Next time work harder.');
         } else {
-            showModal(score + ' blocks. You are a computer. Go compute.');
+            alert(score+' blocks. You are a computer. Go compute.');
         }
     }
 };
 
 function showLevelCompleteMessage(level) {
-    showModal("Congratulations! You have completed level " + level + ". Moving to the next level!");
+    alert("Congratulations! You have completed level " + level + ". Moving to the next level!");
 }
+
 
 GameStatusChanger.end = function () {
     console.log("Game end function called");
     scorealert();
+    //scorealert();
     squaredlines.newgame();
 };
-
 
 GameStatusChanger.nextlevel = function () {
     console.log("Next level function called");
@@ -1509,3 +1474,4 @@ function showDialog() {
   document.getElementById('undoButton').addEventListener('click', function() {
     squaredlines.undo();
 });
+

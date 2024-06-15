@@ -1,30 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta name="author" content="Heartland Games">
     <meta name="msapplication-tap-highlight" content="no" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="minimal-ui" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="viewport" content="width=device-width, user-scalable=no" />
-
+    <meta name="viewport" content="width=device-width, user-scalable=no"/>
+    
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
-    <meta name="viewport"
-        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-    <script src="https://kit.fontawesome.com/a2c23c1a99.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    
     <style>
         body {
-            background-color: #1e1e1e;
+            background-color: #1e1e1e; /* Dark gray background */
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            perspective: 1000px;
+            perspective: 1000px; /* Add perspective for 3D effect */
         }
-
+       
         .background-layer {
             position: absolute;
             top: 0;
@@ -33,137 +31,31 @@
             height: 100vh;
             background: radial-gradient(circle, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
             animation: rotate 30s infinite linear;
-            transform: translateZ(-100px);
-            /* Move background layer back */
+            transform: translateZ(-100px); /* Move background layer back */
         }
-
         .background-layer:nth-child(2) {
             background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
             animation-duration: 60s;
-            transform: translateZ(-200px);
-            /* Move second background layer further back */
+            transform: translateZ(-200px); /* Move second background layer further back */
         }
-
         @keyframes rotate {
             from {
                 transform: rotate(0deg);
             }
-
             to {
                 transform: rotate(360deg);
             }
         }
-
-        footer {
-            text-align: center;
-            color: #fff;
-        }
-
-        .con {
-            font-size: 2rem;
-            color: #fff;
-        }
-
-        .social {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 2.5rem;
-
-        }
-
-       
-        #dialogBox {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 20px;
-            background: linear-gradient(135deg, #ADD8E6, #90EE90);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            border-radius: 8px;
-        }
-
-        #dialogBox h2 {
-            margin: 0;
-            margin-bottom: 10px;
-        }
-
-        #dialogBox button {
-            margin-top: 10px;
-            border: none;
-            background-color: transparent;
-            color: black;
-
-        }
-
-        #dialogBox button:hover {
-            color: darkgreen;
-
-        }
-
-        #dialogBox button:active {
-            color: darkgreen;
-          
-        }
-
-        #overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-        }
-
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgb(0, 0, 0);
-            background-color: rgba(0, 0, 0, 0.4);
-            padding-top: 60px;
-        }
-
-        .modal-content {
-            background-image: linear-gradient(to bottom right, rgb(255, 255, 208), rgb(255, 192, 203));
-            margin: 5% auto;
-            padding: 20px;
-            margin-top: 200px;
-            border: 1px solid #000000;
-            width: 30%;
-        }
-
-
-        .close {
-            color: #000000;
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: rgb(13, 146, 1);
-            text-decoration: none;
-            cursor: pointer;
-        }
     </style>
+    
 
-    <title>Squared Lines</title>
-    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+<title>Squared Lines</title>
+<link rel="icon" type="image/x-icon" href="./favicon.ico">
+
 </head>
 
 <body>
+
     <div class="background-layer"></div>
     <div class="background-layer"></div>
    
@@ -203,6 +95,10 @@
 
     <script src="game.js"></script>
     
+  <div class="background-layer"></div>
+  <div id="container">
+    <canvas id="game"></canvas>
+  </div>  
+  <script src="game.js"></script>
 </body>
-
 </html>
