@@ -55,6 +55,46 @@
 </head>
 
 <body>
+
+    <div class="background-layer"></div>
+    <div class="background-layer"></div>
+   
+    <div id="container">
+        
+        <canvas id="game"></canvas>
+        <button id="undoButton">Undo</button>
+        <footer>
+            <h2>Made with ❤️ by Chrome Gaming</h2>
+            <p>Connect with Me</p>
+            <div class="social">
+                <a class="con" href="https://www.linkedin.com/company/chromegaming/"><i
+                        class="fa-brands fa-linkedin"></i></a>
+                <a class="con" href="https://github.com/GameSphere-MultiPlayer"><i class="fa-brands fa-github"></i></a>
+                <a class="con" href="https://discord.gg/rZb46cCMmK"><i class="fa-brands fa-discord"></i></a>
+                <a class="con" href="mailto:gamespheremultiplayer@gmail.com"><i
+                        class="fa-light fa-square-envelope"></i></a>
+            </div>
+            <p class="opyright">© Copyright Squard Line @Durgesh4993</p>
+        </footer>
+    </div>
+
+    <div id="overlay"></div>
+
+    <div id="dialogBox">
+        <h2>Welcome to the Squared Game</h2>
+        <button onclick="closeDialog()">LET'S PLAY!</button>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <p id="modalMessage"></p>
+            <div class="close">RESTART</div>
+
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+    
   <div class="background-layer"></div>
   <div id="container">
     <canvas id="game"></canvas>
