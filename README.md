@@ -148,14 +148,20 @@ This project is licensed under the [MIT License](./LICENSE).
 <hr>
 
  <!-- Cotributors -->
+
+
+⭐️ Support Our Project
+If you find this project helpful, please consider giving it a star on GitHub! Your support helps to grow the project and reach more contributors.
+
+<hr>
+
 <div>
-  <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png" width="35" height="35"> Contributors</h2>
+  <h2 align = "center"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png" width="35" height="35">Our Contributors</h2>
+  <div align = "center">
+ <h3>Thank you for contributing to our repository</h3>
+
+![Contributors](https://contrib.rocks/image?repo=ChromeGaming/Squard-line)
+
+### Show some ❤️ by starring this awesome repository!
+
 </div>
-
-Thank you for your invaluable support! Your contributions are essential in enhancing Squard-line and driving our project forward. 😊
-
-<center>
-<a href="https://github.com/ChromeGaming/Squard-line/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=ChromeGaming/Squard-line" />
-</a>
-</center>
