@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <meta name="author" content="Heartland Games">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="msapplication-tap-highlight" content="no">
     <title>Squard-line</title>
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
-    <script src="https://kit.fontawesome.com/a2c23c1a99.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-GA4b4Dl6sFwU1scAupFZk54h4j04Zn6itlS/TXl2k/fI0bFkUMuak2G0Vimc5LvFzrwuPkbViDQHsFiSzybzKw==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <style>
         body {
             background-color: #1e1e1e;
@@ -25,14 +25,14 @@
             height: 100vh;
             background: radial-gradient(circle, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
             animation: rotate 30s infinite linear;
-            transform: translateZ(-100px); /* Move background layer back */
+            transform: translateZ(-100px);
             z-index: 0;
         }
 
         .background-layer:nth-child(2) {
             background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
             animation-duration: 60s;
-            transform: translateZ(-200px); /* Move second background layer further back */
+            transform: translateZ(-200px);
             z-index: 0;
         }
 
@@ -49,20 +49,26 @@
         footer {
             text-align: center;
             color: #fff;
-            position: relative; 
+            position: relative;
             padding: 20px 0;
         }
 
         .social {
             display: flex;
             justify-content: center;
-            gap: 2.5rem; 
+            gap: 2.5rem;
             color: #fff;
         }
 
         .social a {
             font-size: 2rem;
             color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social a:hover {
+            color: #8ae2ad;
         }
 
         #dialogBox {
@@ -88,14 +94,15 @@
             border: none;
             background-color: transparent;
             color: black;
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
         #dialogBox button:hover {
-            color: darkgreen;
-        }
-
-        #dialogBox button:active {
-            color: darkgreen;
+            background-color: #8ae2ad;
         }
 
         #overlay {
@@ -128,7 +135,8 @@
             padding: 20px;
             border: 1px solid #000000;
             width: 80%;
-            max-width: 400px; /* Limit width on larger screens */
+            max-width: 400px;
+            text-align: center;
         }
 
         .close {
@@ -136,17 +144,22 @@
             font-size: 14px;
             font-weight: bold;
             cursor: pointer;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
         .close:hover,
         .close:focus {
-            color: rgb(13, 146, 1);
-            text-decoration: none;
+            background-color: #ddd;
+            color: #333;
         }
 
         @media only screen and (max-width: 768px) {
             .modal-content {
-                width: 90%; /* Adjust width for smaller screens */
+                width: 90%;
             }
         }
     </style>
@@ -160,27 +173,35 @@
             <h2>Made with ❤️ by Chrome Gaming</h2>
             <p>Connect with Me</p>
             <div class="social">
-                <a href="https://www.linkedin.com/company/chromegaming/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://github.com/GameSphere-MultiPlayer" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <a href="https://discord.gg/rZb46cCMmK" target="_blank"><i class="fa-brands fa-discord"></i></a>
-                <a href="mailto:gamespheremultiplayer@gmail.com"><i class="fa-light fa-square-envelope"></i></a>
+                <a href="https://www.linkedin.com/company/chromegaming/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/GameSphere-MultiPlayer" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://discord.gg/rZb46cCMmK" target="_blank"><i class="fab fa-discord"></i></a>
+                <a href="mailto:gamespheremultiplayer@gmail.com"><i class="fal fa-envelope-square"></i></a>
             </div>
-            <p class="opyright">© Copyright Squard Line @Durgesh4993</p>
+            <p class="opyright">© Squard Line @Durgesh4993</p>
         </footer>
     </div>
     <div id="overlay"></div>
     <div id="dialogBox">
-        <h2>Welcome to the Squared Game</h2>
+        <h2>Welcome to the Squard Game</h2>
         <button onclick="closeDialog()">LET'S PLAY!</button>
     </div>
     <div id="myModal" class="modal">
         <div class="modal-content">
             <p id="modalMessage"></p>
-            <div class="close">RESTART</div>
+            <div class="close" onclick="restartGame()">RESTART</div>
         </div>
     </div>
     <script src="game.js"></script>
     <script>
+        function closeDialog() {
+            document.getElementById("dialogBox").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        function restartGame() {
+            document.getElementById("myModal").style.display = "none";
+        }
     </script>
 </body>
 </html>
