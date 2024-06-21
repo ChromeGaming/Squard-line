@@ -248,69 +248,116 @@
             text-decoration: none;
             cursor: pointer;
         }
-        body.light-theme {
-            background-color: #fff;
-            color: #333;
-        }
 
-        body.dark-theme {
-            background-color: #1e1e1e;
-            color: #fff;
-        }
+        @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+* {box-sizing: border-box;}
+
+/* body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  min-height: 100vh;
+  margin: 0;
+  transition: background 0.2s linear;
+} */
+
+body {
+            background-color: #fffdfd;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            perspective: 1000px;
+}
+
+body.dark {background-color: #2a2727;} /* #9b59b6 */
+
+body.dark h1, body.dark .support a {color: #fff;}
+
+.toggle{
+    margin-left: 30px;
+    padding-top: 15px;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  background-color: #111;
+  width: 65px;
+  height: 36px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-moon {color: #f1c40f;}
+
+.fa-sun {color: #f39c12;}
+
+.checkbox-label .ball {
+  background-color: #fff;
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  left: 2px;
+  top: 4px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(33px);
+}
+
+
+/*  Support me if you like it */
+.support {
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+}
+
+.support a {
+  color: #0c0c0c;
+  font-size: 32px;
+  backface-visibility: hidden;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.support a:hover{
+  transform: scale(1.1);
+}
         
-         /* Style the theme toggle container */
-        .theme-toggle {
-            display: flex;
-            /* align-items: center; */
-            padding: 25px;
-            margin-left: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        /* Style the button */
-        #themeButton {
-            border: none;
-            background-color: transparent;
-            padding: 5px 10px;
-            font-size: 35px;
-            color: inherit; /* Inherit color from parent element */
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        /* Hide the first icon (sun) initially */
-        .fa-sun {
-            display: none;
-        }
-
-        /* Show the moon icon by default (assuming dark theme is loaded first) */
-        .fa-moon {
-            color: #ffc107; /* Adjust color as needed */
-        }
-
-        /* Toggle icon visibility and color based on body theme class */
-        body.light-theme {
-            .fa-sun {
-                display: block;
-                color: #f08080;
-            }
-            .fa-moon {
-                display: none;
-            }
-        }
+        
     </style>
 
     <title>Squared Lines</title>
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
 </head>
 
-<body class="dark-theme">
-    <div class="theme-toggle">
-        <button id="themeButton">
-          <i class="fa-solid fa-sun"></i> <i class="fa-solid fa-moon"></i> </button>
-      </div>      
+<body>
+
+<div class="toggle">
+  <input type="checkbox" class="checkbox" id="checkbox">
+  <label for="checkbox" class="checkbox-label">
+    <i class="fas fa-moon"></i>
+    <i class="fas fa-sun"></i>
+    <span class="ball"></span>
+  </label>
+</div>
+         
       
     <div class="background-layer"></div>
     <div class="background-layer"></div>
@@ -378,16 +425,11 @@
 
     <script src="game.js"></script>
     <script>
-        window.onload = function() {
-          const toggleButton = document.getElementById('themeButton');
-          const body = document.body;
-        
-          toggleButton.addEventListener('click', () => {
-            body.classList.toggle('light-theme');
-            body.classList.toggle('dark-theme');
-          });
-        };
-        </script>
+        const checkbox = document.getElementById("checkbox")
+        checkbox.addEventListener("change", () => {
+            document.body.classList.toggle("dark")
+        })
+    </script>
         
 
 </body>
