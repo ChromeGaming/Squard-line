@@ -1,4 +1,10 @@
-![Community](https://github.com/GameSphere-MultiPlayer/Physi-c-Tech/assets/98798977/e79af9da-814e-487e-8a9a-85947384d3b2)
+<div align="center">
+  <h1>Squard-line</h1>
+</div>
+
+<div>
+  <img src="https://github.com/ChromeGaming/Squard-line/assets/133582566/d24f3cd2-6b8b-4bb9-9a9c-2068d7d02a8c" alt="Gif" width="100%" Height="550"/>
+</div>
 
 # About Our Project 💻
 <div align="center">
@@ -39,37 +45,47 @@ To add a remote upstream, run the following command in your terminal:
     ```bash
     git remote add upstream https://github.com/Durgesh4993/Squard-line/
     ```
+4. Check the remotes for this repository.
 
-4. Create a new branch.
+   ```bash
+    git remote -v
+    ```
+5. Always take a pull from the upstream repository to your master branch to keep it at par with the main project (updated repository).
+
+   ```bash
+    git pull upstream main
+    ```
+
+6. Create a new branch.
 To create a new branch, run the following command in your terminal:
     
     ```bash
     git checkout -b <your-branch-name>
     ```
 
-5. Make changes in source code.
+7. Make changes in source code.
 
-6. Add your changes
+8. Add your changes
 To add your changes, run the following command in your terminal:
     
     ```bash
     git add <File1 changed> <File2 changed> ...
     ```
-7. Commit your changes.
+9. Commit your changes.
 To commit your changes, run the following command in your terminal:
     
     ```bash
     git commit -m "<your-commit-message>"
     ```
 
-8. Push your changes.
+10. Push your changes.
 To push your changes, run the following command in your terminal:
     
     ```bash
     git push origin <your-branch-name>
     ```
 
-9. Create a PR.
+11. Create a PR.
 
 __________________________________________________________________________________________________________________________________________________________________
 
@@ -92,3 +108,60 @@ ________________________________________________________________________________
 8. Once you're satisfied with your pull request, click the "Create pull request" button to submit it.
 
 **Note:** In order to create a pull request, you must have a fork of the original repository in your GitHub account and you must have made the changes in that forked repository.
+
+<hr>
+
+<!-- Open Source Programs -->
+  <div>
+    <h2><img src="https://github.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/blob/master/Emojis/Hand%20gestures/Flexed%20Biceps.png?raw=true" width="35" height="35" >Open Source Programs</h2>
+  </div>
+
+ This project is part of GirlScript Summer of Code. We enthusiastically welcome community contributions to help enhance Squard-line. Your involvement is crucial to our success!
+  
+![Community](https://github.com/GameSphere-MultiPlayer/Physi-c-Tech/assets/98798977/e79af9da-814e-487e-8a9a-85947384d3b2)
+
+<hr>
+
+<!-- Code of conduct -->
+<div>
+<h2><img src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" width="35" height="35"> Code of Conduct</h2>
+</div>
+
+Please note that this project is released with a [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+
+<hr>
+
+## Contact Us
+<div>
+<a href="https://www.linkedin.com/in/durgesh4993/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/durgesh4993/" height="30" width="40" /></a>
+</div>
+
+<hr>
+
+<!-- License -->
+<div>
+<h2><img src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Page%20with%20Curl.png" width="35" height="35"> License</h2>
+</div>
+
+This project is licensed under the [MIT License](./LICENSE).
+
+<hr>
+
+ <!-- Cotributors -->
+
+
+⭐️ Support Our Project
+If you find this project helpful, please consider giving it a star on GitHub! Your support helps to grow the project and reach more contributors.
+
+<hr>
+
+<div>
+  <h2 align = "center"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png" width="35" height="35">Our Contributors</h2>
+  <div align = "center">
+ <h3>Thank you for contributing to our repository</h3>
+
+![Contributors](https://contrib.rocks/image?repo=ChromeGaming/Squard-line)
+
+### Show some ❤️ by starring this awesome repository!
+
+</div>
