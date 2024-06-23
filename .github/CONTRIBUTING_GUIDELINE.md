@@ -7,6 +7,49 @@ Thank you for helping out and remember, **no contribution is too small.**
 <br>
 Please note we have a [code of conduct](CODE_OF_CONDUCT.md)  please follow it in all your interactions with the project.
 
+### Contribute using GitHub Desktop
+
+1. **Open GitHub Desktop:**
+   Launch GitHub Desktop and log in to your GitHub account if you haven't already.
+
+2. **Clone the Repository:**
+   - If you haven't cloned the Squard-line repository yet, you can do so by clicking on the "File" menu and selecting "Clone Repository."
+   - Choose the Squard-line repository from the list of repositories on GitHub and clone it to your local machine.
+
+3. **Switch to the Correct Branch:**
+   - Ensure you are on the branch that you want to submit a pull request for.
+   - If you need to switch branches, you can do so by clicking on the "Current Branch" dropdown menu and selecting the desired branch.
+
+4. **Make Changes:**
+   Make your changes to the code or files in the repository using your preferred code editor.
+
+5. **Commit Changes:**
+   - In GitHub Desktop, you'll see a list of the files you've changed. Check the box next to each file you want to include in the commit.
+   - Enter a summary and description for your changes in the "Summary" and "Description" fields, respectively. Click the "Commit to <branch-name>" button to commit your changes to the local branch.
+
+6. **Push Changes to GitHub:**
+   After committing your changes, click the "Push origin" button in the top right corner of GitHub Desktop to push your changes to your forked repository on GitHub.
+
+7. **Create a Pull Request:**
+  - Go to the GitHub website and navigate to your fork of the Squard-line repository.
+  - You should see a button to "Compare & pull request" between your fork and the original repository. Click on it.
+
+8. **Review and Submit:**
+   - On the pull request page, review your changes and add any additional information, such as a title and description, that you want to include with your pull request.
+   - Once you're satisfied, click the "Create pull request" button to submit your pull request.
+
+9. **Wait for Review:**
+    Your pull request will now be available for review by the project maintainers. They may provide feedback or ask for changes before merging your pull request into the main branch of the Squard-line repository.
+
+## 📈 Development Workflow
+
+When working on the project, please follow these guidelines:
+
+1. Always work on a new branch for each separate issue or feature.
+2. Keep your branch up to date with the main repository's `master` branch.
+3. Write clear and descriptive commit messages.
+4. Test your changes thoroughly before submitting a pull request.
+5. Keep discussions polite and respectful.
 
 
 <br>
@@ -45,5 +88,28 @@ in case you are stuck:
 5. Submit your PR by giving the necesarry information in PR template and hang tight we will review it really soon 🚀
 
 <br>
+
+## 🤝 Community Guidelines
+
+We expect all contributors to adhere to the following community guidelines:
+
+1. Be respectful and considerate towards others.
+2. Use inclusive language and promote a welcoming environment.
+3. Avoid personal attacks, harassment, or discrimination.
+4. Keep discussions on-topic and constructive.
+5. Help others and contribute positively to the community.
+
+<br>
+
+## Documentation 📑
+- Document any significant changes or additions to the codebase.
+- Provide clear and concise explanations of the functionality, usage, and any relevant considerations.
+
+## ✅ Code Reviews
+- Be open to feedback and constructive criticism from other contributors.
+- Participate in code reviews by reviewing and providing feedback.
+
+## 🚀🚀Feature Requests
+- Suggest new features or improvements that you believe would enhance the project.
 
 # **Happy Hacking 💗** 
