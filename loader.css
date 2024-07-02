@@ -1,0 +1,12 @@
+.preloader{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    height: 100vh;
+}
+
+.site-content {
+    display: none;
+}
