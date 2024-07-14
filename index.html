@@ -32,6 +32,7 @@
             background: radial-gradient(circle, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
             animation: rotate 30s infinite linear;
             transform: translateZ(-100px); /* Move background layer back */
+            z-index: 5;
         }
         .background-layer:nth-child(2) {
             background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
@@ -62,6 +63,49 @@
            gap: 2.5rem; 
            
         }
+
+    .game-controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+    }
+
+  #start-button, #restart-button {
+      margin: 0px;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+  #restart-button {     
+    background-color: #f0f0f0;
+      color: #333;
+      border: 2px solid #333;
+    }
+
+  #start-button:hover, #restart-button:hover {
+     background-color: #45a049;
+    }
+
+ #restart-button:hover {
+     background-color: #e0e0e0;
+     }
+
+  #game {
+     position: relative;
+     z-index: 1;
+    }
     </style>
     
 
@@ -74,6 +118,12 @@
   <div class="background-layer"></div>
   <div id="container">
     <canvas id="game"></canvas>
+    <div class="game-controls">
+    <button id="start-button">Start Game</button>
+    <button id="restart-button">Restart Game</button>
+    </div>
+
+
     <footer>
         <h2>Made by ❤️ by Chrome Gaming </h2>
         <p> Connect with Me </p>
