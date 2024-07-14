@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta name="author" content="Heartland Games">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, user-scalable=no"/>
+    
+    <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
-    <title>Squard-line</title>
-    <link rel="icon" type="image/x-icon" href="./favicon.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-GA4b4Dl6sFwU1scAupFZk54h4j04Zn6itlS/TXl2k/fI0bFkUMuak2G0Vimc5LvFzrwuPkbViDQHsFiSzybzKw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <script src="https://kit.fontawesome.com/a2c23c1a99.js" crossorigin="anonymous"></script>
     <style>
         body {
-            background-color: #1e1e1e;
+            background-color: #1e1e1e; /* Dark gray background */
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            perspective: 1000px;
+            perspective: 1000px; /* Add perspective for 3D effect */
         }
-
+       
         .background-layer {
             position: absolute;
             top: 0;
@@ -25,595 +31,181 @@
             height: 100vh;
             background: radial-gradient(circle, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
             animation: rotate 30s infinite linear;
-
-
-            transform: translateZ(-100px);
-            /* Move background layer back */
-
             transform: translateZ(-100px); /* Move background layer back */
-
-            transform: translateZ(-100px);
-            z-index: 0;
-
+            z-index: 5;
         }
-
         .background-layer:nth-child(2) {
             background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
             animation-duration: 60s;
-
-
-            transform: translateZ(-200px);
-            /* Move second background layer further back */
-
             transform: translateZ(-200px); /* Move second background layer further back */
-
-            transform: translateZ(-200px);
-
-            z-index: 0;
-
         }
-
         @keyframes rotate {
             from {
                 transform: rotate(0deg);
             }
-
             to {
                 transform: rotate(360deg);
             }
         }
 
-        footer {
+        footer{
             text-align: center;
             color: #fff;
-
-
-            z-index: 1; 
-            position: relative; 
-
         }
-
-        .con {
+        .con{
             font-size: 2rem;
             color: #fff;
-
-            position: relative;
-            padding: 20px 0;
-
         }
-
-
-
-
-        .social {
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem;
-            color: #fff;
-        }
-
-        .social a {
-            font-size: 2rem;
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-contact a:hover {
-            color: #777373;
-
-
         .social{
            display: flex;
            align-items: center;
            justify-content: center;
            gap: 2.5rem; 
-           z-index:1;
-           position: relative; 
+           
         }
 
-        .social a:hover {
-            transform: scale(1.3);
-            transition: .3s;
-            color: rgb(188, 55, 55);
+    .game-controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+    }
 
-        .social a:hover {
-            color: #8ae2ad;
+  #start-button, #restart-button {
+      margin: 0px;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
 
-        }
+  #restart-button {     
+    background-color: #f0f0f0;
+      color: #333;
+      border: 2px solid #333;
+    }
 
-        #dialogBox {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 20px;
-            background: linear-gradient(135deg, #ADD8E6, #90EE90);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            border-radius: 8px;
-        }
+  #start-button:hover, #restart-button:hover {
+     background-color: #45a049;
+    }
 
-        #dialogBox h2 {
-            margin: 0;
-            margin-bottom: 10px;
-        }
+ #restart-button:hover {
+     background-color: #e0e0e0;
+     }
 
-        #dialogBox button {
-            margin-top: 10px;
-            border: none;
-            background-color: transparent;
-            color: black;
-            cursor: pointer;
-            font-size: 1.2rem;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        #dialogBox button:hover {
-            background-color: #8ae2ad;
-        }
-
-
-
-        #dialogBox button:active {
-            color: darkgreen;
-          
-        }
-
-        #overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-
-        }
-
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgb(0, 0, 0);
-            background-color: rgba(0, 0, 0, 0.4);
-            padding-top: 60px;
-        }
-
-        .modal-content {
-            background-image: linear-gradient(to bottom right, rgb(255, 255, 208), rgb(255, 192, 203));
-            margin: 5% auto;
-            padding: 20px;
-            margin-top: 200px;
-            border: 1px solid #000000;
-            width: 30%;
-        }
-
-      .background-layer {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background: radial-gradient(
-          circle,
-          rgba(255, 255, 255, 0.05),
-          rgba(0, 0, 0, 0.1)
-        );
-        animation: rotate 30s infinite linear;
-        transform: translateZ(-100px); /* Move background layer back */
-      }
-      .background-layer:nth-child(2) {
-        background: radial-gradient(
-          circle,
-          rgba(255, 255, 255, 0.1),
-          rgba(0, 0, 0, 0.2)
-        );
-        animation-duration: 60s;
-        transform: translateZ(
-          -200px
-        ); /* Move second background layer further back */
-      }
-      @keyframes rotate {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.4);
-            padding-top: 60px;
-        }
-
-        .modal-content {
-            background-image: linear-gradient(to bottom right, rgb(255, 255, 208), rgb(255, 192, 203));
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #000000;
-            width: 80%;
-            max-width: 400px;
-            text-align: center;
-        }
-
-        .close {
-            color: #000000;
-            font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: #f0f0f0;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .close:hover,
-        .close:focus {
-            background-color: #ddd;
-            color: #333;
-        }
-
-
-
-        body.light-theme {
-            background-color: #fff;
-            color: #333;
-        }
-
-        @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-
-        * {box-sizing: border-box;}
-
-        body.dark {background-color: #2a2727;} /* #9b59b6 */
-
-        body.dark h1, body.dark .support a {color: #fff;}
-
-        .toggle{
-            margin-left: 30px;
-            padding-top: 15px;
-        }
-
-        .checkbox {
-            opacity: 0;
-            position: absolute;
-        }
-
-        .checkbox-label {
-            background-color: #111;
-            width: 65px;
-            height: 36px;
-            border-radius: 50px;
-            position: relative;
-            padding: 5px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .fa-moon {color: #f1c40f;}
-
-        .fa-sun {color: #f39c12;}
-
-        .checkbox-label .ball {
-            background-color: #fff;
-            width: 26px;
-            height: 26px;
-            position: absolute;
-            left: 2px;
-            top: 4px;
-            border-radius: 50%;
-            transition: transform 0.2s linear;
-        }
-
-        .checkbox:checked + .checkbox-label .ball {
-            transform: translateX(33px);
-        }
-
-
-        /*  Support me if you like it */
-        .support {
-            position: absolute;
-            right: 20px;
-            bottom: 20px;
-        }
-
-        .support a {
-            color: #0c0c0c;
-            font-size: 32px;
-            backface-visibility: hidden;
-            display: inline-block;
-            transition: transform 0.2s ease;
-        }
-
-        .support a:hover{
-            transform: scale(1.1);
-        }
-        
-         /* Style the theme toggle container */
-        .theme-toggle {
-            display: flex;
-            /* align-items: center; */
-            padding: 25px;
-            margin-left: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        /* Style the button */
-        #themeButton {
-            border: none;
-            background-color: transparent;
-            padding: 5px 10px;
-            font-size: 35px;
-            color: inherit; /* Inherit color from parent element */
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        /* Hide the first icon (sun) initially */
-        .fa-sun {
-            display: none;
-        }
-
-        /* Show the moon icon by default (assuming dark theme is loaded first) */
-        .fa-moon {
-            color: #ffc107; /* Adjust color as needed */
-        }
-
-        /* Toggle icon visibility and color based on body theme class */
-        body.light-theme {
-            .fa-sun {
-                display: block;
-                color: #f08080;
-            }
-            .fa-moon {
-                display: none;
-            }
-        }
-
+  #game {
+     position: relative;
+     z-index: 1;
+    }
     </style>
+    
 
+<title>Squared Lines</title>
+<link rel="icon" type="image/x-icon" href="./favicon.ico">
+
+</head>
+
+<body>
+  <div class="background-layer"></div>
+  <div id="container">
+    <canvas id="game"></canvas>
+    <div class="game-controls">
+    <button id="start-button">Start Game</button>
+    <button id="restart-button">Restart Game</button>
+    </div>
+
+
+    <footer>
+        <h2>Made by ❤️ by Chrome Gaming </h2>
+        <p> Connect with Me </p>
+        <div class="social">
+            <a class="con" href="https://www.linkedin.com/company/chromegaming/"><i class="fa-brands fa-linkedin"></i></a> 
+            <a class="con" href="https://github.com/GameSphere-MultiPlayer"><i class="fa-brands fa-github"></i></a>
+            <a class="con" href="https://discord.gg/rZb46cCMmK"><i class="fa-brands fa-discord"></i></a>
+            <a class="con" href="mailto:gamespheremultiplayer@gmail.com"><i class="fa-light fa-square-envelope"></i></a>
+        </div>
+            <p class="opyright">© Copyright Squard Line @Durgesh4993</p>
+        <p></p>
+      </footer>
+  </div>  
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Squared Lines</title>
-    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
-  </head>
-
-  <body>
-
-
-<body>
-
-<div class="toggle">
-  <input type="checkbox" class="checkbox" id="checkbox">
-  <label for="checkbox" class="checkbox-label">
-    <i class="fas fa-moon"></i>
-    <i class="fas fa-sun"></i>
-    <span class="ball"></span>
-  </label>
-</div>
-         
-      
-
-
-<body>
-
-
-        @media only screen and (max-width: 768px) {
-            .modal-content {
-                width: 90%;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <div class="background-layer"></div>
-    <div class="background-layer"></div>
-    <div id="container">
-        <canvas id="game"></canvas>
-        <footer>
-            <h2>Made with ❤️ by Chrome Gaming</h2>
-            <p>Connect with Me</p>
-            <div class="social">
-                <a class="con" href="https://www.linkedin.com/company/chromegaming/"><i class="fa-brands fa-linkedin"></i></a>
-                <a class="con" href="https://github.com/GameSphere-MultiPlayer"><i class="fa-brands fa-github"></i></a>
-                <a class="con" href="https://discord.gg/rZb46cCMmK"><i class="fa-brands fa-discord"></i></a>
-                <a class="con" href="mailto:gamespheremultiplayer@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-            </div>
-            <p class="Copyright">© Copyright Squard Line @Durgesh4993</p>
-            
-            <div class="footer-links">
-                <a href="/about">About Us</a> |
-                <a href="/contact">Contact</a> |
-                <a href="/privacy">Privacy Policy</a> |
-                <a href="/terms">Terms of Service</a>
-            </div>
-            
-            <div class="footer-subscribe">
-                <h3>Subscribe to our Newsletter</h3>
-                <form>
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-            </div>
-            
-            <div class="footer-contact">
-                <p>Contact us: <a href="mailto:support@chromegaming.com">support@chromegaming.com</a></p>
-                <p>Phone: +1 (123) 456-7890</p>
-
-                <a class="con" href="https://www.linkedin.com/company/chromegaming/" target="_blank"><i
-                        class="fa-brands fa-linkedin"></i></a>
-                <a class="con" href="https://github.com/ChromeGaming/Squard-line" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <a class="con" href="https://discord.gg/rZb46cCMmK" target="_blank"><i class="fa-brands fa-discord"></i></a>
-                <a class="con" href="mailto:gamespheremultiplayer@gmail.com"><i class="fa-solid fa-envelope"></i
-                  ></a>
-                <a href="https://www.linkedin.com/company/chromegaming/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/GameSphere-MultiPlayer" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://discord.gg/rZb46cCMmK" target="_blank"><i class="fab fa-discord"></i></a>
-                <a href="mailto:gamespheremultiplayer@gmail.com"><i class="fal fa-envelope-square"></i></a>
-            </div>
-            <p class="opyright">© Squard Line @Durgesh4993</p>
-        </footer>
-    </div>
-    <div id="overlay"></div>
-    <div id="dialogBox">
-        <h2>Welcome to the Squard Game</h2>
-        <button onclick="closeDialog()">LET'S PLAY!</button>
-    </div>
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <p id="modalMessage"></p>
-
-            <div class="close">RESTART</div>
-
-        <canvas id="game"></canvas>
-        <!-- <footer class="footer">
-            <h2>Made with ❤️ by Chrome Gaming</h2>
-            <p>Connect with Me</p>
-            <div class="social">
-                <a class="con" href="https://www.linkedin.com/company/chromegaming/"><i class="fa-brands fa-linkedin"></i></a>
-                <a class="con" href="https://github.com/GameSphere-MultiPlayer"><i class="fa-brands fa-github"></i></a>
-                <a class="con" href="https://discord.gg/rZb46cCMmK"><i class="fa-brands fa-discord"></i></a>
-                <a class="con" href="mailto:gamespheremultiplayer@gmail.com"><i class="fa-light fa-square-envelope"></i></a>
-            </div>
-            <p class="Copyright">© Copyright Squard Line @Durgesh4993</p>
-        </footer> -->
-        <footer class="footer">
-            <h2>Made with ❤️ by Chrome Gaming</h2>
-            <p>Connect with Me</p>
-            <div class="social">
-                <a class="con" href="https://www.linkedin.com/company/chromegaming/"><i class="fa-brands fa-linkedin"></i></a>
-                <a class="con" href="https://github.com/GameSphere-MultiPlayer"><i class="fa-brands fa-github"></i></a>
-                <a class="con" href="https://discord.gg/rZb46cCMmK"><i class="fa-brands fa-discord"></i></a>
-                <a class="con" href="mailto:gamespheremultiplayer@gmail.com"><i class="fa-light fa-square-envelope"></i></a>
-            </div>
-            <p class="Copyright">© Copyright Squard Line @Durgesh4993</p>
-            
-            <div class="footer-links">
-                <a href="/about">About Us</a> |
-                <a href="/contact">Contact</a> |
-                <a href="/privacy">Privacy Policy</a> |
-                <a href="/terms">Terms of Service</a>
-            </div>
-            
-            <div class="footer-subscribe">
-                <h3>Subscribe to our Newsletter</h3>
-                <form>
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-            </div>
-            
-            <div class="footer-contact">
-                <p>Contact us: <a href="mailto:support@chromegaming.com">support@chromegaming.com</a></p>
-                <p>Phone: +1 (123) 456-7890</p>
-            </div>
-        </footer>
-        
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
     </div>
 
-    <div id="overlay"></div>
-
-    <div id="dialogBox">
-        <h2>Welcome to the Squared Game</h2>
-        <button onclick="closeDialog()">LET'S PLAY!</button>
-    </div>
-
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <p id="modalMessage"></p>
-            <div class="close">RESTART</div>
-
-      <div class="help">
-        <h3>How to play?</h3>
-        <div class="content">
-          <b style="color: lightblue">Gameplay:</b>
-          <br /><span style="color: green">>></span> After starting the game,
-          you'll see the game <br /><span style="color: greenyellow">>></span>
-          Your goal is to cut the board into procedurally declared blocks.
-          <br /><span style="color: green">>></span> To cut a block, tap on the
-          board to select the squares you want to include in the block.
-          <br /><span style="color: greenyellow">>></span> Once you've selected
-          a block, it will be highlighted.
-        </div>
-        <div class="content">
-          <br />
-          <b style="color: lightblue">Scoring:</b>
-          <br /><span style="color: green">>></span> Your score is calculated
-          based on the number of blocks you successfully cut. <br /><span
-            style="color: greenyellow"
-            >>></span
-          >
-          The game will alert you when you complete a level or reach certain
-          milestones in your score.
-        </div>
-        <div class="content">
-          <br />
-          <b style="color: lightblue">Winning:</b>
-          <br /><span style="color: green">>></span> If you reach level 128, you
-          win the game. <br /><span style="color: greenyellow">>></span>
-          Alternatively, you can win by completing all levels with a high score.
-
-            <div class="close" onclick="restartGame()">RESTART</div>
-
+    <!-- Dialogue Box -->
+    <div id="dialogue-box" class="dialogue-box">
+        <div class="dialogue-content">
+            <span id="dialogue-message"></span>
+            <div id="dialogue-options"></div>
         </div>
     </div>
+
     <script src="game.js"></script>
-    <script>
-
-        const checkbox = document.getElementById("checkbox")
-        checkbox.addEventListener("change", () => {
-            document.body.classList.toggle("dark")
-        })
-    </script>
-
-
-        window.onload = function() {
-          const toggleButton = document.getElementById('themeButton');
-          const body = document.body;
-        
-          toggleButton.addEventListener('click', () => {
-            body.classList.toggle('light-theme');
-            body.classList.toggle('dark-theme');
-          });
-        };
-        </script>
-
-        
-
-    </script>
-
-        function closeDialog() {
-            document.getElementById("dialogBox").style.display = "none";
-            document.getElementById("overlay").style.display = "none";
-        }
-
-        function restartGame() {
-            document.getElementById("myModal").style.display = "none";
-        }
-    </script>
-
 </body>
 </html>
+
+  <script src="game.js"></script>
+</body>
+</html>
+
+<style>
+    body 
+.dialogue-box {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.dialogue-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+}
+
+#dialogue-options {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#dialogue-options button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#dialogue-options button:hover {
+    background-color: #45a049;
+}
+</style>
