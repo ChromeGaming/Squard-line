@@ -16,7 +16,11 @@
             font-family: Arial, sans-serif;
             perspective: 1000px;
         }
-
+        @media only screen and (max-width: 768px) {
+            .modal-content {
+                width: 90%;
+            }
+        }
         .background-layer {
             position: absolute;
             top: 0;
@@ -102,7 +106,7 @@
         .footer-contact a:hover {
             color: #777373;
 
-
+        }
         .social{
            display: flex;
            align-items: center;
@@ -116,7 +120,7 @@
             transform: scale(1.3);
             transition: .3s;
             color: rgb(188, 55, 55);
-
+        }
         .social a:hover {
             color: #8ae2ad;
 
@@ -231,7 +235,7 @@
         to {
           transform: rotate(360deg);
 
-        }
+        }}
 
         .modal {
             display: none;
@@ -393,6 +397,27 @@
                 display: none;
             }
         }
+/* styles.css */
+
+#scrollToTopBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: #555; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+}
+
+#scrollToTopBtn:hover {
+    background-color: #333; /* Darker background on hover */
+}
 
     </style>
 
@@ -416,16 +441,6 @@
          
       
 
-
-<body>
-
-
-        @media only screen and (max-width: 768px) {
-            .modal-content {
-                width: 90%;
-            }
-        }
-    </style>
 </head>
 <body>
 
@@ -435,6 +450,7 @@
         <canvas id="game"></canvas>
         <footer>
             <h2>Made with ❤️ by Chrome Gaming</h2>
+
             <p>Connect with Me</p>
             <div class="social">
                 <a class="con" href="https://www.linkedin.com/company/chromegaming/"><i class="fa-brands fa-linkedin"></i></a>
@@ -443,14 +459,14 @@
                 <a class="con" href="mailto:gamespheremultiplayer@gmail.com"><i class="fa-solid fa-envelope"></i></a>
             </div>
             <p class="Copyright">© Copyright Squard Line @Durgesh4993</p>
-            
             <div class="footer-links">
                 <a href="/about">About Us</a> |
                 <a href="/contact">Contact</a> |
                 <a href="/privacy">Privacy Policy</a> |
                 <a href="/terms">Terms of Service</a>
             </div>
-            
+            <button id="scrollToTopBtn">↑</button>
+
             <div class="footer-subscribe">
                 <h3>Subscribe to our Newsletter</h3>
                 <form>
@@ -475,6 +491,7 @@
                 <a href="mailto:gamespheremultiplayer@gmail.com"><i class="fal fa-envelope-square"></i></a>
             </div>
             <p class="opyright">© Squard Line @Durgesh4993</p>
+            
         </footer>
     </div>
     <div id="overlay"></div>
@@ -530,6 +547,7 @@
                 <p>Contact us: <a href="mailto:support@chromegaming.com">support@chromegaming.com</a></p>
                 <p>Phone: +1 (123) 456-7890</p>
             </div>
+
         </footer>
         
     </div>
@@ -580,15 +598,38 @@
 
         </div>
     </div>
+
     <script src="game.js"></script>
     <script>
+        // script.js
+
+// Get the button
+let mybutton = document.getElementById("scrollToTopBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {
+scrollFunction();
+};
+
+function scrollFunction() {
+if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+} else {
+    mybutton.style.display = "none";
+}
+}
+
+// When the user clicks on the button, scroll to the top of the document
+mybutton.onclick = function() {
+document.body.scrollTop = 0; // For Safari
+document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+};
+
 
         const checkbox = document.getElementById("checkbox")
         checkbox.addEventListener("change", () => {
             document.body.classList.toggle("dark")
         })
-    </script>
-
 
         window.onload = function() {
           const toggleButton = document.getElementById('themeButton');
@@ -599,11 +640,8 @@
             body.classList.toggle('dark-theme');
           });
         };
-        </script>
 
         
-
-    </script>
 
         function closeDialog() {
             document.getElementById("dialogBox").style.display = "none";
@@ -613,6 +651,7 @@
         function restartGame() {
             document.getElementById("myModal").style.display = "none";
         }
+     
     </script>
 
 </body>
