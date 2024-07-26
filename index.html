@@ -413,6 +413,18 @@
     padding: 15px; /* Some padding */
     border-radius: 10px; /* Rounded corners */
     font-size: 18px; /* Increase font size */
+    animation: float 6s ease-out infinite;
+}
+@keyframes float {
+  0%{
+    transform: translateY(0px);
+  }
+  50%{
+  transform: translateY(-50px);
+  }
+  100%{
+    transform: translateY(0px);
+  }
 }
 
 #scrollToTopBtn:hover {
