@@ -451,6 +451,40 @@ footer a:hover{
       
 }
 
+/* BACK-TO-TOP */
+
+html {
+  scroll-behavior: smooth;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #598bbe;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  text-decoration: none;
+  transition: 0.4s ease-out;
+}
+
+.back-to-top span {
+  color: #fff;
+  font-size: 2.6rem;
+  transition: 0.4s ease-out;
+}
+
+.back-to-top:hover {
+  background-color: #237eda;
+}
+
+.back-to-top:hover span {
+  transform: translateY(-4px);
+}
+
 @media screen and (max-width: 1050px) and (min-width:768px){
   .modes{
     display: none;
