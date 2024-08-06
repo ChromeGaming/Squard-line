@@ -8,10 +8,20 @@
 
 # About Our Project 💻
 <div align="center">
+  <p>This project is a puzzle game where players match candies to solve puzzles and progress through multiple levels. It features various objectives, boosters, and social features, making it highly addictive and enjoyable for players of all ages</p>
 <img src="https://forthebadge.com/images/badges/built-with-love.svg" />
 <img src="https://forthebadge.com/images/badges/uses-brains.svg" />
 <img src="https://forthebadge.com/images/badges/powered-by-responsibility.svg" />
   <br>
+  <img src="https://img.shields.io/badge/Built%20With-Technologies-blue" alt="Built With">
+
+
+ <img src="https://img.shields.io/badge/JavaScript-yellow?style=for-the-badge" alt="JavaScript">
+ <img src="https://img.shields.io/badge/HTML5-blue?style=for-the-badge" alt="HTML5">
+ <img src="https://img.shields.io/badge/CSS3-red?style=for-the-badge" alt="CSS3">
+
+
+<br>
 <img src="https://img.shields.io/github/repo-size/GameSphere-MultiPlayer/Squard-line?style=for-the-badge" />
    <img src="https://img.shields.io/github/issues-pr/GameSphere-MultiPlayer/Squard-line?style=for-the-badge" />
 
