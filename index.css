@@ -1,0 +1,400 @@
+body {
+    background-color: #1e1e1e;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    perspective: 1000px;
+}
+
+.background-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+    animation: rotate 30s infinite linear;
+
+
+    transform: translateZ(-100px);
+    /* Move background layer back */
+
+    transform: translateZ(-100px); /* Move background layer back */
+
+    transform: translateZ(-100px);
+    z-index: 0;
+
+}
+
+.background-layer:nth-child(2) {
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
+    animation-duration: 60s;
+
+
+    transform: translateZ(-200px);
+    /* Move second background layer further back */
+
+    transform: translateZ(-200px); /* Move second background layer further back */
+
+    transform: translateZ(-200px);
+
+    z-index: 0;
+
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+footer {
+    text-align: center;
+    color: #fff;
+
+
+    z-index: 1; 
+    position: relative; 
+
+}
+
+.con {
+    font-size: 2rem;
+    color: #fff;
+
+    position: relative;
+    padding: 20px 0;
+
+}
+
+
+
+
+.social {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    color: #fff;
+}
+
+.social a {
+    font-size: 2rem;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+    color: #777373;
+}
+
+.social{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 2.5rem; 
+   z-index:1;
+   position: relative; 
+}
+
+.social a:hover {
+    transform: scale(1.3);
+    transition: .3s;
+    color: rgb(188, 55, 55);
+}
+
+.social a:hover {
+    color: #8ae2ad;
+
+}
+
+#dialogBox {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: linear-gradient(135deg, #ADD8E6, #90EE90);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 8px;
+}
+
+#dialogBox h2 {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+#dialogBox button {
+    margin-top: 10px;
+    border: none;
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#dialogBox button:hover {
+    background-color: #8ae2ad;
+}
+
+
+
+#dialogBox button:active {
+    color: darkgreen;
+  
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-image: linear-gradient(to bottom right, rgb(255, 255, 208), rgb(255, 192, 203));
+    margin: 5% auto;
+    padding: 20px;
+    margin-top: 200px;
+    border: 1px solid #000000;
+    width: 30%;
+}
+
+.background-layer {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100vh;
+background: radial-gradient(
+  circle,
+  rgba(255, 255, 255, 0.05),
+  rgba(0, 0, 0, 0.1)
+);
+animation: rotate 30s infinite linear;
+transform: translateZ(-100px); /* Move background layer back */
+}
+.background-layer:nth-child(2) {
+background: radial-gradient(
+  circle,
+  rgba(255, 255, 255, 0.1),
+  rgba(0, 0, 0, 0.2)
+);
+animation-duration: 60s;
+transform: translateZ(
+  -200px
+); /* Move second background layer further back */
+}
+@keyframes rotate {
+from {
+  transform: rotate(0deg);
+}
+to {
+  transform: rotate(360deg);
+
+}
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-image: linear-gradient(to bottom right, rgb(255, 255, 208), rgb(255, 192, 203));
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #000000;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.close {
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+    background-color: #ddd;
+    color: #333;
+}
+
+
+
+body.light-theme {
+    background-color: #fff;
+    color: #333;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+* {box-sizing: border-box;}
+
+body.dark {background-color: #2a2727;} /* #9b59b6 */
+
+body.dark h1, body.dark .support a {color: #fff;}
+
+.toggle{
+    margin-left: 30px;
+    padding-top: 15px;
+}
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.checkbox-label {
+    background-color: #111;
+    width: 65px;
+    height: 36px;
+    border-radius: 50px;
+    position: relative;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fa-moon {color: #f1c40f;}
+
+.fa-sun {color: #f39c12;}
+
+.checkbox-label .ball {
+    background-color: #fff;
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    left: 2px;
+    top: 4px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+    transform: translateX(33px);
+}
+
+
+/*  Support me if you like it */
+.support {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.support a {
+    color: #0c0c0c;
+    font-size: 32px;
+    backface-visibility: hidden;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.support a:hover{
+    transform: scale(1.1);
+}
+
+ /* Style the theme toggle container */
+.theme-toggle {
+    display: flex;
+    /* align-items: center; */
+    padding: 25px;
+    margin-left: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Style the button */
+#themeButton {
+    border: none;
+    background-color: transparent;
+    padding: 5px 10px;
+    font-size: 35px;
+    color: inherit; /* Inherit color from parent element */
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Hide the first icon (sun) initially */
+.fa-sun {
+    display: none;
+}
+
+/* Show the moon icon by default (assuming dark theme is loaded first) */
+.fa-moon {
+    color: #ffc107; /* Adjust color as needed */
+}
+
+/* Toggle icon visibility and color based on body theme class */
+body.light-theme {
+    .fa-sun {
+        display: block;
+        color: #f08080;
+    }
+    .fa-moon {
+        display: none;
+    }
+}
+.footer-links a {
+    color:#ADD8E6;
+}
+.footer-contact a{
+    color:#ADD8E6;
+}
+.footer-links a :hover{
+    color: blue;
+}
+
+@media only screen and (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+    }
+}
